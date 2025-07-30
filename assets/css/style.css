@@ -1,51 +1,77 @@
-:root{
- --glass: rgba(255,255,255,0.55);
- --border: rgba(168,233,255,0.9);
- --gap:28px;
- --maxw: 1200px;
+/* reset & full-cover background */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: url('assets/frutigerwallpaper.png') no-repeat center/cover;
+  font-family: sans-serif;
 }
-*{box-sizing:border-box;font-family:Segoe UI,Tahoma,Arial,sans-serif;margin:0;padding:0}
-body{
- background:url('../img/frutigerwallpaper.png') center/cover fixed no-repeat;
- color:#003b5c;
- display:flex;
- justify-content:center;
-}
-.wrapper{max-width:var(--maxw);padding:40px;width:100%;}
-.grid{
- display:grid;grid-auto-flow:dense;
- grid-auto-flow:row;
- grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
- gap:var(--gap);
-}
-.win{
- backdrop-filter:blur(8px) saturate(140%);
- background:var(--glass);
- border:2px solid var(--border);
- border-radius:10px;
- box-shadow:0 4px 10px rgba(0,0,0,.25);
- overflow:hidden;
- display:flex;flex-direction:column;
-}
-.title{text-align:center;
- background:linear-gradient(to bottom,rgba(255,255,255,.65),rgba(255,255,255,.15));
- font-weight:600;font-size:17px;
- padding:6px 10px;border-bottom:1px solid var(--border);
- text-transform:lowercase;
-}
-.body{padding:14px;font-size:16px;text-transform:lowercase}
-.body img{max-width:100%;border-radius:6px;display:block}
-.player-box{display:flex;flex-direction:column;gap:10px;align-items:center}
-.track-cover{width:160px;height:160px;border-radius:8px;object-fit:cover}
-.track-title{font-weight:700;font-size:18px;margin-top:6px;text-align:center}
-.controls{display:flex;justify-content:space-between;width:100%;margin-top:8px}
-.controls button{background:#0078d7;border:none;color:#fff;padding:6px 14px;border-radius:6px;font-size:16px;cursor:pointer}
-.controls button:hover{background:#005a9e}
-.small-img{max-height:160px;width:100%;height:auto;border-radius:6px;}
 
-.small-tile{width:140px;}
+/* grid container for all “windows” */
+.windows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
 
-.row-flex{display:flex;gap:var(--gap);justify-content:space-evenly;flex-wrap:nowrap;margin:var(--gap) 0;}
-.row-flex .win{margin:0;}
+/* common window style */
+.window {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
 
-.full-row{grid-column:1 / -1;margin:var(--gap) 0;}
+/* auto title bar from data-title */
+.window::before {
+  content: attr(data-title);
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+/* images fit window */
+.window img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* now playing special layout */
+.window[data-title="now playing"] img {
+  max-width: 150px;
+  margin: 0 auto 8px;
+}
+.window audio {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+.controls button {
+  padding: 6px 12px;
+  border: none;
+  background: #006ee6;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* quote styling */
+.quote {
+  margin-top: 8px;
+  font-style: italic;
+  font-size: 0.95em;
+}
+
+/* text windows (drexel & music bio) tweaks */
+[data-title="drexel university"],
+[data-title="music bio"] {
+  font-size: 1.05em;
+  line-height: 1.4;
+}
