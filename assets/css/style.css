@@ -44,3 +44,6 @@ body{
 .small-img{max-height:160px;width:100%;height:auto;border-radius:6px;}
 
 .small-tile{width:140px;}
+
+.row-flex{display:flex;gap:var(--gap);flex-wrap:nowrap;}
+.row-flex .win{margin:0;}

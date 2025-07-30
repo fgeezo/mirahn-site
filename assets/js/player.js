@@ -34,8 +34,7 @@ load(0);
 audio.volume=0.15;
 audio.setAttribute('autoplay','');
 audio.load();
+
 window.addEventListener('load',()=>{
-  audio.muted=true;
-  tryPlay();
-  setTimeout(()=>{audio.muted=false; audio.volume=0.15;},1500);
+  setTimeout(()=>{audio.muted=false;},1200);
 });
