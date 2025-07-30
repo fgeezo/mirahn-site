@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>mirahn's space</title>
-  <!-- make sure this path matches your repo -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -68,7 +67,6 @@
   </div>
 
   <script>
-    // playlist setup
     const tracks = [
       'assets/comfort_chain.mp3',
       'assets/aquatic_ambience.mp3',
@@ -82,7 +80,7 @@
     player.src = tracks[idx];
     player.volume = 0.15;
     player.autoplay = true;
-    player.play().catch(()=>{ /* may require user gesture */ });
+    player.play().catch(()=>{});
 
     document.getElementById('next').onclick = () => {
       idx = (idx + 1) % tracks.length;
