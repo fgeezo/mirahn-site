@@ -1,19 +1,14 @@
-/* reset & background */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   background: url('assets/frutigerwallpaper.png') no-repeat center/cover;
   font-family: sans-serif;
 }
-
-/* grid container */
 .windows-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
   padding: 20px;
 }
-
-/* window chrome */
 .window {
   background: rgba(255,255,255,0.6);
   border: 1px solid rgba(255,255,255,0.8);
@@ -21,8 +16,6 @@ body {
   padding: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
-
-/* title bar via data-title */
 .window::before {
   content: attr(data-title);
   display: block;
@@ -31,16 +24,12 @@ body {
   margin-bottom: 8px;
   font-size: 1.1em;
 }
-
-/* images fill */
 .window img {
   width: 100%;
   height: auto;
   display: block;
   margin: 0 auto 8px;
 }
-
-/* audio window tweaks */
 .window[data-title="now playing"] img {
   max-width: 160px;
 }
@@ -60,14 +49,10 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
-
-/* quote styling */
 .quote {
   font-style: italic;
   margin-top: 8px;
 }
-
-/* text windows larger text */
 [data-title="drexel university"],
 [data-title="music bio"] {
   font-size: 1.05em;
