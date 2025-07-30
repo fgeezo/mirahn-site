@@ -6,7 +6,6 @@ const trackList = [
   {title:'c418 – mice on venus',src:'assets/media/mice_on_venus.mp3'},
   {title:'scizzie – aquatic ambience',src:'assets/media/aquatic_ambience.mp3'}
 ];
-// covers to cycle – only images provided in latest upload
 const covers = [
   'assets/img/snoopyeating.png',
   'assets/img/snoopyriding.png',
@@ -14,6 +13,7 @@ const covers = [
   'assets/img/snoopydancin.jpg',
   'assets/img/snoopychilling.png'
 ];
+
 let idx = 0;
 const coverImg = document.getElementById('cover');
 const titleEl = document.getElementById('track-title');
@@ -25,11 +25,22 @@ function load(i){
   titleEl.textContent = t.title;
   audio.src = t.src;
 }
-function playCurrent(){ audio.play(); }
 
-document.getElementById('prev').onclick = ()=>{ idx = (idx + trackList.length -1) % trackList.length; load(idx); playCurrent(); }
-document.getElementById('next').onclick = ()=>{ idx = (idx +1) % trackList.length; load(idx); playCurrent(); }
+function safePlay(){
+  const p = audio.play();
+  if(p !== undefined){
+    p.catch(()=>{}); // ignore autoplay rejection
+  }
+}
+
+document.getElementById('prev').onclick = ()=>{ idx = (idx + trackList.length -1) % trackList.length; load(idx); safePlay(); }
+document.getElementById('next').onclick = ()=>{ idx = (idx +1) % trackList.length; load(idx); safePlay(); }
 audio.onended = ()=>{ document.getElementById('next').click(); };
 
-load(0); // comfort chain first
-window.addEventListener('load', ()=>{ playCurrent(); });
+load(0);
+audio.volume = 0.15;
+window.addEventListener('load', ()=>{
+  audio.muted = true;
+  safePlay();
+  audio.muted = false;
+});
