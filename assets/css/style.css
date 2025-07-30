@@ -45,5 +45,5 @@ body{
 
 .small-tile{width:140px;}
 
-.row-flex{display:flex;gap:var(--gap);flex-wrap:nowrap;}
+.row-flex{display:flex;gap:var(--gap);justify-content:space-evenly;flex-wrap:nowrap;margin:var(--gap) 0;}
 .row-flex .win{margin:0;}
