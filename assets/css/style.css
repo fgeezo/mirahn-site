@@ -1,60 +1,10 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: url('assets/frutigerwallpaper.png') no-repeat center/cover;
-  font-family: sans-serif;
-}
-.windows-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-.window {
-  background: rgba(255,255,255,0.6);
-  border: 1px solid rgba(255,255,255,0.8);
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-.window::before {
-  content: attr(data-title);
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 8px;
-  font-size: 1.1em;
-}
-.window img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 8px;
-}
-.window[data-title="now playing"] img {
-  max-width: 160px;
-}
-.window audio {
-  width: 100%;
-  margin-bottom: 8px;
-}
-.controls {
-  display: flex;
-  justify-content: space-between;
-}
-.controls button {
-  padding: 6px 12px;
-  border: none;
-  background: #006ee6;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.quote {
-  font-style: italic;
-  margin-top: 8px;
-}
-[data-title="drexel university"],
-[data-title="music bio"] {
-  font-size: 1.05em;
-  line-height: 1.4;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:sans-serif;background:url('assets/frutigerwallpaper.png') center/cover fixed}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;padding:20px}
+.window{background:rgba(255,255,255,.65);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.8);border-radius:8px;padding:12px}
+.window::before{content:attr(data-title);display:block;text-align:center;font-weight:700;margin-bottom:8px;font-size:1.1em}
+.window img{width:100%;height:auto;border-radius:4px;margin-bottom:8px}
+.now-playing img{max-width:160px;margin:0 auto 8px;display:block}
+.controls{display:flex;justify-content:space-between;margin-top:4px}
+button{border:none;background:#006ee6;color:#fff;padding:6px 12px;border-radius:4px;cursor:pointer}
+.quote{font-style:italic;font-size:.9em;margin-top:6px}
