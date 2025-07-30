@@ -1,3 +1,4 @@
+
 const trackList = [
   {title:'instupendo – comfort chain',src:'assets/media/comfort_chain.mp3'},
   {title:'lots of hands – mistake',src:'assets/media/mistake.mp3'},
@@ -13,34 +14,28 @@ const covers = [
   'assets/img/snoopydancin.jpg',
   'assets/img/snoopychilling.png'
 ];
-
-let idx = 0;
-const coverImg = document.getElementById('cover');
-const titleEl = document.getElementById('track-title');
-const audio = document.getElementById('audio');
-
+let idx=0;
+const cover=document.getElementById('cover');
+const title=document.getElementById('track-title');
+const audio=document.getElementById('audio');
 function load(i){
-  const t = trackList[i];
-  coverImg.src = covers[Math.floor(Math.random()*covers.length)];
-  titleEl.textContent = t.title;
-  audio.src = t.src;
+  const t=trackList[i];
+  cover.src=covers[Math.floor(Math.random()*covers.length)];
+  title.textContent=t.title;
+  audio.src=t.src;
 }
-
-function safePlay(){
-  const p = audio.play();
-  if(p !== undefined){
-    p.catch(()=>{}); // ignore autoplay rejection
-  }
+function tryPlay(){
+  audio.play().catch(()=>{}); // ignore rejection
 }
-
-document.getElementById('prev').onclick = ()=>{ idx = (idx + trackList.length -1) % trackList.length; load(idx); safePlay(); }
-document.getElementById('next').onclick = ()=>{ idx = (idx +1) % trackList.length; load(idx); safePlay(); }
-audio.onended = ()=>{ document.getElementById('next').click(); };
-
+document.getElementById('prev').onclick=()=>{idx=(idx+trackList.length-1)%trackList.length;load(idx);tryPlay();}
+document.getElementById('next').onclick=()=>{idx=(idx+1)%trackList.length;load(idx);tryPlay();}
+audio.onended=()=>{document.getElementById('next').click();};
 load(0);
-audio.volume = 0.15;
-window.addEventListener('load', ()=>{
-  audio.muted = true;
-  safePlay();
-  audio.muted = false;
+audio.volume=0.15;
+audio.setAttribute('autoplay','');
+audio.load();
+window.addEventListener('load',()=>{
+  audio.muted=true;
+  tryPlay();
+  setTimeout(()=>{audio.muted=false; audio.volume=0.15;},1500);
 });

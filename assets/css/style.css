@@ -42,3 +42,5 @@ body{
 .controls button{background:#0078d7;border:none;color:#fff;padding:6px 14px;border-radius:6px;font-size:16px;cursor:pointer}
 .controls button:hover{background:#005a9e}
 .small-img{max-height:160px;width:100%;height:auto;border-radius:6px;}
+
+.small-tile{width:140px;}
