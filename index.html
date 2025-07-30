@@ -1,88 +1,67 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>mirahn’s space</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="assets/js/music.js"></script>
+    <meta charset="UTF-8">
+    <title>mirahn's space</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
-
 <body>
-  <div id="desktop">
+<div class="main-flex">
 
-    <!-- row 1 -->
-    <div class="window" style="grid-column:1;">
-      <h2>drexel university</h2>
-      <p>bachelor of science in computer engineering · class of ’26<br>
-         concentration in security technology<br>
-         software engineer @ lockheed martin (2 yrs)<br>
-         security monitoring co‑op @ susquehanna international group</p>
-    </div>
-
-    <div class="window" style="grid-column:2;">
-      <h2>music bio</h2>
-      <p>shoegaze / ambient music producer<br>
-         kurate music collective<br>
-         50k monthly listeners · 250k streams monthly<br>
-         guitar player</p>
-    </div>
-
-    <!-- row 2 – now‑playing + first cow -->
-    <div class="window wide" style="grid-column:1/3;">
-      <h2>now playing</h2>
-      <img id="nowCover" src="assets/img/snoopynightout.jpg" alt="cover" />
-      <p id="nowTitle">instupendo – comfort chain</p>
-
-      <audio id="player" preload="auto"></audio>
-      <div class="controls">
-        <button id="prev">← prev</button>
-        <button id="next">next →</button>
-      </div>
+    <div class="window">
+        <div class="titlebar">drexel university</div>
+        <div>bachelor of science in computer engineering · class of ’26<br>
+            concentration in security technology<br>
+            software engineer @ lockheed martin (2 yrs)<br>
+            security monitoring co-op @ susquehanna international group
+        </div>
     </div>
 
     <div class="window">
-      <h2>moo.png</h2>
-      <img src="assets/img/moo.png" alt="highland cow">
+        <div class="titlebar">music bio</div>
+        <div>shoegaze / ambient music producer<br>
+        kurate music collective<br>
+        50k monthly listeners · 250k streams monthly<br>
+        guitar player</div>
     </div>
 
-    <!-- row 3 – second cow + snoopy -->
+    <div class="window music-player">
+        <div class="titlebar">now playing</div>
+        <img src="assets/img/snoopychilling.png" class="music-cover" id="music-cover" alt="cover">
+        <div class="music-meta" id="music-meta">instupendo – comfort chain</div>
+        <audio id="audio" controls autoplay></audio>
+        <div class="audio-controls">
+            <button id="prev-btn">⟵ prev</button>
+            <button id="play-btn">play/pause</button>
+            <button id="next-btn">next ⟶</button>
+        </div>
+    </div>
+
     <div class="window">
-      <h2>moooooooo.png</h2>
-      <img src="assets/img/moooooooo.png" alt="highland cow & calf">
+        <div class="titlebar">moo.png</div>
+        <img src="assets/img/moo.png" alt="cow">
     </div>
 
-    <div class="window wide">
-      <h2>snoopy_chillin.png</h2>
-      <img src="assets/img/snoopy_chillin.png" alt="snoopy chilling">
-    </div>
-
-    <!-- row 4 – mr. fox + four new tiles -->
     <div class="window">
-      <h2>mr_fox.png</h2>
-      <img src="assets/img/mr_fox.png" alt="mr fox">
-      <p class="caption">“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</p>
+        <div class="titlebar">mooooooooo.png</div>
+        <img src="assets/img/mooooooooo.png" alt="cow">
     </div>
 
-    <div class="window mini">
-      <h2>mikeandikes.png</h2>
-      <img src="assets/img/mikeandikes.png" alt="mike and ike tropical typhoon">
+    <div class="window">
+        <div class="titlebar">snoopy_chillin.png</div>
+        <img src="assets/img/snoopychillin.png" alt="snoopy chillin">
     </div>
 
-    <div class="window mini">
-      <h2>my crib</h2>
-      <img src="assets/img/mycrib.png" alt="roblox crib">
+    <div class="window">
+        <div class="titlebar">mr_fox.png</div>
+        <img src="assets/img/mrfox.jpg" alt="mr fox">
+        <div style="font-size:14px;margin-top:8px;">“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</div>
     </div>
 
-    <div class="window mini">
-      <h2>miloandmango.png</h2>
-      <img src="assets/img/miloandmango.png" alt="milo & mango">
-    </div>
+    <!-- Add more windows below as needed -->
 
-    <div class="window mini">
-      <h2>sandysrocket.png</h2>
-      <img src="assets/img/sandysrocket.png" alt="sandy’s rocket">
-    </div>
-
-  </div>
+</div>
+<script src="assets/js/music.js"></script>
 </body>
 </html>
