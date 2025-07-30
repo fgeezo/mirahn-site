@@ -1,40 +1,31 @@
+const tracks = [
+  { title: "instupendo – comfort chain",   cover: "assets/img/snoopynightout.jpg", src: "assets/media/comfort_chain.mp3" },
+  { title: "c418 – mice on venus",         cover: "assets/img/snoopydancin.jpg",   src: "assets/media/mice_on_venus.mp3" },
+  { title: "xori – warm nights",           cover: "assets/img/snoopyeating.png",   src: "assets/media/warm_nights.mp3" },
+  { title: "lots of hands – mistake",      cover: "assets/img/snoopyriding.png",   src: "assets/media/mistake.mp3" },
+  { title: "scizzie – aquatic ambience",   cover: "assets/img/snoopychilling.png", src: "assets/media/aquatic_ambience.mp3" },
+  { title: "overpopulation… – no love…",   cover: "assets/img/snoopy1.jpg",        src: "assets/media/no_love.mp3" }
+];
 
-const trackList = [
-  {title:'instupendo – comfort chain',src:'assets/media/comfort_chain.mp3'},
-  {title:'lots of hands – mistake',src:'assets/media/mistake.mp3'},
-  {title:'tell me – jack‑o‑lantern / six days after christmas',src:'assets/media/tell_me.mp3'},
-  {title:'xori – warm nights',src:'assets/media/warm_nights.mp3'},
-  {title:'c418 – mice on venus',src:'assets/media/mice_on_venus.mp3'},
-  {title:'scizzie – aquatic ambience',src:'assets/media/aquatic_ambience.mp3'}
-];
-const covers = [
-  'assets/img/snoopyeating.png',
-  'assets/img/snoopyriding.png',
-  'assets/img/snoopynightout.jpg',
-  'assets/img/snoopydancin.jpg',
-  'assets/img/snoopychilling.png'
-];
-let idx=0;
-const cover=document.getElementById('cover');
-const title=document.getElementById('track-title');
-const audio=document.getElementById('audio');
-function load(i){
-  const t=trackList[i];
-  cover.src=covers[Math.floor(Math.random()*covers.length)];
-  title.textContent=t.title;
-  audio.src=t.src;
+let idx = 0;
+const player   = document.getElementById("player");
+const nowCover = document.getElementById("nowCover");
+const nowTitle = document.getElementById("nowTitle");
+const prevBtn  = document.getElementById("prev");
+const nextBtn  = document.getElementById("next");
+
+function load(i) {
+  idx = (i + tracks.length) % tracks.length;
+  player.src   = tracks[idx].src;
+  nowCover.src = tracks[idx].cover;
+  nowTitle.textContent = tracks[idx].title;
 }
-function tryPlay(){
-  audio.play().catch(()=>{}); // ignore rejection
-}
-document.getElementById('prev').onclick=()=>{idx=(idx+trackList.length-1)%trackList.length;load(idx);tryPlay();}
-document.getElementById('next').onclick=()=>{idx=(idx+1)%trackList.length;load(idx);tryPlay();}
-audio.onended=()=>{document.getElementById('next').click();};
+
+prevBtn.onclick = () => { load(idx - 1); player.play(); };
+nextBtn.onclick = () => { load(idx + 1); player.play(); };
+player.onended  = () =>   nextBtn.onclick();
+
+// autoplay at 15 % volume
+player.volume = 0.15;
 load(0);
-audio.volume=0.15;
-audio.setAttribute('autoplay','');
-audio.load();
-
-window.addEventListener('load',()=>{
-  setTimeout(()=>{audio.muted=false;},1200);
-});
+player.play().catch(()=>{ /* autoplay blocked */ });
