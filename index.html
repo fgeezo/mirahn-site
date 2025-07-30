@@ -1,89 +1,103 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>mirahn's space</title>
-<link rel="stylesheet" href="assets/css/style.css">
-</head><body>
-<div class="wrapper">
-<div class="grid">
-
-  <div class="win" style="grid-column: span 2;">
-    <div class="title">drexel university</div>
-    <div class="body" style="font-size:18px;font-weight:600;color:#002a40;">
-      bachelor of science in computer engineering · class of ’26<br>
-      concentration in security technology<br>
-      software engineer @ lockheed martin (2 yrs)<br>
-      security monitoring co‑op @ susquehanna international group
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>mirahn's space</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="windows-grid">
+    <!-- core info windows -->
+    <div class="window" data-title="drexel university">
+      <p>bachelor of science in computer engineering · class of ’26</p>
+      <p>concentration in security technology</p>
+      <p>software engineer @ lockheed martin (2 yrs)</p>
+      <p>security monitoring co‑op @ susquehanna international group</p>
     </div>
-  </div>
 
-  <div class="win">
-    <div class="title">music bio</div>
-    <div class="body" style="font-size:18px;font-weight:600;color:#002a40;">
-      shoegaze / ambient music producer<br>
-      kurate music collective<br>
-      50k monthly listeners · 250k streams monthly<br>
-      guitar player
+    <div class="window" data-title="music bio">
+      <p>shoegaze / ambient music producer</p>
+      <p>kurate music collective</p>
+      <p>50k monthly listeners · 250k streams monthly</p>
+      <p>guitar player</p>
     </div>
-  </div>
 
-  <div class="win" style="grid-column: span 2;">
-    <div class="title">now playing</div>
-    <div class="body">
-      <div class="player-box">
-        <img id="cover" class="track-cover" src="" alt="">
-        <div id="track-title" class="track-title"></div>
-        <audio id="audio" controls autoplay muted style="width:100%;margin-top:6px;"></audio>
-        <div class="controls">
-          <button id="prev">⟵ prev</button>
-          <button id="next">next ⟶</button>
-        </div>
+    <div class="window" data-title="now playing">
+      <img src="assets/snoopy_chillin.png" alt="snoopy chilling" />
+      <p>instupendo – comfort chain</p>
+      <audio id="player" controls>
+        <source src="assets/comfort_chain.mp3" type="audio/mpeg"/>
+      </audio>
+      <div class="controls">
+        <button id="prev">← prev</button>
+        <button id="next">next →</button>
       </div>
     </div>
-  </div>
 
-  <div class="win"><div class="title">moo.png</div><div class="body"><img src="assets/img/cow1.png" alt=""></div></div>
-  <div class="win"><div class="title">moooooooo.png</div><div class="body"><img src="assets/img/cow2.png" alt=""></div></div>
-  <div class="win" style="grid-column:span 2;"><div class="title">snoopy_chillin.png</div><div class="body"><img src="assets/img/snoopy2.jpg" alt=""></div></div>
-  
+    <div class="window" data-title="moo.png">
+      <img src="assets/moo.png" alt="moo" />
+    </div>
 
-  
+    <div class="window" data-title="moooooooo.png">
+      <img src="assets/moooooooo.png" alt="highland cow" />
+    </div>
 
-</div>
+    <div class="window" data-title="snoopy_chillin.png">
+      <img src="assets/snoopy_chillin.png" alt="snoopy chilling" />
+    </div>
 
-  
+    <!-- new image windows -->
+    <div class="window" data-title="mr_fox.png">
+      <img src="assets/mr_fox.png" alt="mr. fox" />
+      <p class="quote">“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</p>
+    </div>
 
-  
-</div>
+    <div class="window" data-title="mikeandikes.png">
+      <img src="assets/mikeandikes.png" alt="mike and ike tropical typhoon" />
+    </div>
 
-  <div class="win" style="width:260px;"><div class="title">mr_fox.png</div>
-    <div class="body">
-      <img src="assets/img/mrfox.jpg" style="width:240px;" alt="">
-      <p style="margin-top:8px;">“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</p>
+    <div class="window" data-title="mycrib.png">
+      <img src="assets/mycrib.png" alt="my roblox crib" />
+    </div>
+
+    <div class="window" data-title="miloandmango.png">
+      <img src="assets/miloandmango.png" alt="milo and mango" />
+    </div>
+
+    <div class="window" data-title="sandysrocket.png">
+      <img src="assets/sandysrocket.png" alt="sandy's rocket" />
     </div>
   </div>
 
-  
+  <script>
+    // autoplay + volume
+    const player = document.getElementById('player');
+    player.volume = 0.15;
+    player.autoplay = true;
+    player.play().catch(()=>{/* some browsers block autoplay without user gesture */});
 
-  <div class="win">
-    <div class="title">mikeandikes.png</div>
-    <div class="body" style="text-align:center;"><img src="assets/img/mikeandikes.png" alt="" style="width:240px;"></div>
-  </div>
-
-  <div class="win">
-    <div class="title">mycrib.png</div>
-    <div class="body" style="text-align:center;"><img src="assets/img/mycrib.png" alt="" style="width:240px;"></div>
-  </div>
-
-  <div class="win">
-    <div class="title">miloandmango.png</div>
-    <div class="body" style="text-align:center;"><img src="assets/img/miloandmango.png" alt="" style="width:240px;"></div>
-  </div>
-
-  <div class="win">
-    <div class="title">sandysrocket.png</div>
-    <div class="body" style="text-align:center;"><img src="assets/img/sandysrocket.png" alt="" style="width:240px;"></div>
-  </div>
-</div>
-<script src="assets/js/player.js"></script>
-</body></html>
+    // simple playlist logic
+    const tracks = [
+      'assets/comfort_chain.mp3',
+      'assets/aquatic_ambience.mp3',
+      'assets/mice_on_venus.mp3',
+      'assets/tell_me.mp3',
+      'assets/warm_nights.mp3',
+      'assets/mistake.mp3'
+    ];
+    let idx = 0;
+    document.getElementById('next').onclick = () => {
+      idx = (idx + 1) % tracks.length;
+      player.src = tracks[idx];
+      player.play();
+    };
+    document.getElementById('prev').onclick = () => {
+      idx = (idx - 1 + tracks.length) % tracks.length;
+      player.src = tracks[idx];
+      player.play();
+    };
+    player.onended = () => document.getElementById('next').click();
+  </script>
+</body>
+</html>
