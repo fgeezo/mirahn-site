@@ -9,9 +9,7 @@
 <body>
 
   <!-- ░ ticker ░ -->
-  <div id="ticker">
-    <span>frutiger aero supremacy • </span>
-  </div>
+  <div id="ticker"><span>frutiger aero supremacy • </span></div>
 
   <!-- ░ desktop ░ -->
   <div class="desktop">
@@ -53,7 +51,7 @@
       <ul>
         <li>shoegaze / ambient music producer</li>
         <li>kurate music collective</li>
-        <li>50k monthly listeners · 250k streams monthly</li>
+        <li>50 k monthly listeners · 250 k streams monthly</li>
         <li>guitar player</li>
       </ul>
     </figure>
@@ -63,7 +61,7 @@
       <div class="ctrl">
         <div class="min"></div><div class="max"></div><div class="close"></div>
       </div>
-      <img src="assets/mikeandikes.png" alt="tropical typhoon">
+      <img src="assets/mikeandikes.png" alt="Mike & Ike">
     </figure>
 
     <figure class="win" data-title="my_crib.png">
@@ -99,7 +97,7 @@
       <div class="ctrl">
         <div class="min"></div><div class="max"></div><div class="close"></div>
       </div>
-      <img src="assets/cow2.png" alt="highland cow and calf">
+      <img src="assets/cow2.png" alt="cow & calf">
     </figure>
 
     <figure class="win" data-title="sandysrocket.png">
@@ -111,42 +109,55 @@
 
   </div><!-- .desktop -->
 
-  <!-- ░ scripts ░ -->
   <script>
-    // infinitely repeat ticker
-    const span = document.querySelector('#ticker span');
-    let txt = span.textContent.trim();
-    // pad so it's long enough
-    while (span.offsetWidth < window.innerWidth * 4) {
-      span.textContent += ' ' + txt;
+    // ── ticker ──
+    const tickSpan = document.querySelector('#ticker span'),
+          txt = tickSpan.textContent;
+    // pad until twice viewport
+    while (tickSpan.offsetWidth < window.innerWidth * 2) {
+      tickSpan.textContent += ' ' + txt;
     }
-    // slower by 10%
-    span.style.animation = 'ticker 22s linear infinite';
+    // slow by 10%
+    tickSpan.style.animation = 'ticker 22s linear infinite';
 
-    // snoopy‐only player
+    // ── snoopy‐only player ──
     const tracks = [
-      {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg", title:"instupendo – comfort chain"},
+      {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg",   title:"instupendo – comfort chain"},
       {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",     title:"lots of hands – mistake"},
       {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",     title:"jacko / christmas – tell me"},
       {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png", title:"c418 – mice on venus"},
       {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png",   title:"xori – warm nights"}
     ];
-    let idx = 0;
-    const player = document.getElementById('player'),
-          art    = document.getElementById('art'),
-          cap    = document.getElementById('trackname');
+    let idx=0;
+    const player=document.getElementById('player'),
+          art   =document.getElementById('art'),
+          cap   =document.getElementById('trackname');
     function load(n){
-      idx = (n + tracks.length) % tracks.length;
-      player.src = tracks[idx].src;
-      art.src    = tracks[idx].art;
-      cap.textContent = tracks[idx].title;
+      idx=(n+tracks.length)%tracks.length;
+      player.src=tracks[idx].src;
+      art.src   =tracks[idx].art;
+      cap.textContent=tracks[idx].title;
       player.play().catch(()=>{});
     }
-    document.getElementById('prev').onclick = ()=> load(idx - 1);
-    document.getElementById('next').onclick = ()=> load(idx + 1);
-    player.onended = ()=> load(idx + 1);
+    document.getElementById('prev').onclick=_=>load(idx-1);
+    document.getElementById('next').onclick=_=>load(idx+1);
+    player.onended=_=>load(idx+1);
     load(0);
-  </script>
 
+    // ── masonry row‐span calc ──
+    function resizeAll(){
+      const grid = document.querySelector('.desktop'),
+            rowH = parseInt(getComputedStyle(grid).getPropertyValue('grid-auto-rows')),
+            gap  = parseInt(getComputedStyle(grid).getPropertyValue('grid-gap'));
+      grid.querySelectorAll('.win').forEach(item=>{
+        const h = item.getBoundingClientRect().height;
+        const span = Math.ceil((h+gap)/(rowH+gap));
+        item.style.gridRowEnd = 'span '+span;
+      });
+    }
+    window.addEventListener('load',  resizeAll);
+    window.addEventListener('resize',resizeAll);
+
+  </script>
 </body>
 </html>
