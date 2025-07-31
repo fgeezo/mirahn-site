@@ -11,14 +11,10 @@
   <!-- ░ ticker ░ -->
   <div id="ticker"><span>frutiger aero supremacy • </span></div>
 
-  <!-- ░ desktop ░ -->
+  <!-- ░ desktop grid ░ -->
   <div class="desktop">
-
-    <!-- info ▪ left -->
     <figure class="win info" data-title="drexel university">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
       <ul>
         <li>bachelor of science in computer engineering · class of ’26</li>
         <li>concentration in security technology</li>
@@ -26,12 +22,8 @@
         <li>security monitoring co-op @ susquehanna international group</li>
       </ul>
     </figure>
-
-    <!-- player ▪ centre -->
     <figure class="win" data-title="now playing">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
       <img id="art" src="assets/snoopynightout.jpg" alt="cover">
       <figcaption id="trackname">instupendo – comfort chain</figcaption>
       <audio id="player" controls>
@@ -42,12 +34,8 @@
         <button id="next">next →</button>
       </div>
     </figure>
-
-    <!-- info ▪ right -->
     <figure class="win info" data-title="music bio">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
       <ul>
         <li>shoegaze / ambient music producer</li>
         <li>kurate music collective</li>
@@ -55,69 +43,45 @@
         <li>guitar player</li>
       </ul>
     </figure>
-
-    <!-- image tiles -->
-    <figure class="win" data-title="mikeandikes.png">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
-      <img src="assets/mikeandikes.png" alt="Mike & Ike">
-    </figure>
-
-    <figure class="win" data-title="my_crib.png">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
-      <img src="assets/robloxhouse.jpg" alt="my crib">
-    </figure>
-
-    <figure class="win" data-title="moo.png">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
-      <img src="assets/cow1.png" alt="highland cow">
-    </figure>
-
+    <!-- swap mr_fox and moo -->
     <figure class="win" data-title="mr_fox.png">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
       <figcaption>“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</figcaption>
       <img src="assets/mrfox.jpg" alt="mr fox">
     </figure>
-
+    <figure class="win" data-title="mikeandikes.png">
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <img src="assets/mikeandikes.png" alt="Mike & Ike">
+    </figure>
+    <figure class="win" data-title="my_crib.png">
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <img src="assets/robloxhouse.jpg" alt="my crib">
+    </figure>
+    <figure class="win" data-title="moo.png">
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <img src="assets/cow1.png" alt="highland cow">
+    </figure>
     <figure class="win" data-title="miloandmango.png">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
       <img src="assets/miloandmango.png" alt="milo and mango">
     </figure>
-
     <figure class="win" data-title="moooooooo.png">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
       <img src="assets/cow2.png" alt="cow & calf">
     </figure>
-
     <figure class="win" data-title="sandysrocket.png">
-      <div class="ctrl">
-        <div class="min"></div><div class="max"></div><div class="close"></div>
-      </div>
+      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
       <img src="assets/sandysrocket.png" alt="sandy's rocket">
     </figure>
-
   </div><!-- .desktop -->
 
   <script>
     // ── ticker ──
-    const tickSpan = document.querySelector('#ticker span'),
-          txt = tickSpan.textContent;
-    // pad until twice viewport
-    while (tickSpan.offsetWidth < window.innerWidth * 2) {
+    const tickSpan = document.querySelector('#ticker span');
+    let txt = tickSpan.textContent;
+    while (tickSpan.offsetWidth < window.innerWidth * 3) {
       tickSpan.textContent += ' ' + txt;
     }
-    // slow by 10%
     tickSpan.style.animation = 'ticker 22s linear infinite';
 
     // ── snoopy‐only player ──
@@ -143,34 +107,6 @@
     document.getElementById('next').onclick=_=>load(idx+1);
     player.onended=_=>load(idx+1);
     load(0);
-
-    // ── masonry row‐span calc ──
-    function resizeAll(){
-      const grid = document.querySelector('.desktop'),
-            rowH = parseInt(getComputedStyle(grid).getPropertyValue('grid-auto-rows')),
-            gap  = parseInt(getComputedStyle(grid).getPropertyValue('grid-gap'));
-      grid.querySelectorAll('.win').forEach(item=>{
-        const h = item.getBoundingClientRect().height;
-        const span = Math.ceil((h+gap)/(rowH+gap));
-        item.style.gridRowEnd = 'span '+span;
-      });
-    }
-    window.addEventListener('load',  resizeAll);
-    window.addEventListener('resize',resizeAll);
-    
-        // ── masonry row‐span calc ──
-    function resizeAll(){
-      const grid = document.querySelector('.desktop'),
-            rowH = parseInt(getComputedStyle(grid).getPropertyValue('grid-auto-rows')),
-            gap  = parseInt(getComputedStyle(grid).getPropertyValue('gap'));
-      grid.querySelectorAll('.win').forEach(item=>{
-        const h = item.getBoundingClientRect().height;
-        const span = Math.ceil((h + gap) / (rowH + gap));
-        item.style.gridRowEnd = 'span ' + span;
-      });
-    }
-    window.addEventListener('load',  resizeAll);
-    window.addEventListener('resize',resizeAll);
   </script>
 </body>
 </html>
