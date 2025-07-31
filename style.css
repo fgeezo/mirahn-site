@@ -1,0 +1,67 @@
+
+/* Vista / Frutiger‑Aero mashup */
+@font-face {
+  font-family: "SegoeUI";
+  src: local("Segoe UI"), local("Arial");
+}
+body{
+  margin:0;
+  font-family: "SegoeUI", Arial, sans-serif;
+  background:url('assets/frutigerwallpaper.png') center/cover fixed no-repeat;
+  color:#04344f;
+  overflow-x:hidden;
+}
+.vista-bar{
+  font-weight:bold;
+  background:linear-gradient(180deg,#b7e9ff 0%, #e5faff 100%);
+  border-bottom:2px solid #8fd7ff;
+  padding:6px 0;
+  color:#005b9f;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.desktop{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:28px;
+  padding:36px 8px;
+}
+
+.glass{
+  background:rgba(255,255,255,0.55);
+  backdrop-filter:blur(8px) saturate(160%);
+  border:2px solid rgba(185,235,255,0.9);
+  border-radius:16px;
+  box-shadow:0 6px 20px rgba(0,40,80,0.25);
+  overflow:hidden;
+}
+.box{
+  padding:18px 22px;
+  text-align:center;
+}
+.center{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.logo{width:260px}
+.spark{width:64px}
+.rainbow{width:280px;margin-top:12px}
+.player{max-width:320px}
+.player img{width:160px;border-radius:12px;margin-bottom:8px;box-shadow:0 3px 12px rgba(0,60,120,0.25)}
+.title{
+  font-size:20px;
+  font-weight:700;
+  color:#015f9c;
+  margin-bottom:10px;
+  text-transform:lowercase;
+  text-shadow:0 1px 6px #ffffff;
+}
+.controls{display:flex;justify-content:space-between;margin-top:6px}
+button{border:none;background:#e5faff;color:#0165a5;padding:6px 20px;border-radius:10px;cursor:pointer;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,0.15)}
+button:hover{background:#c9eeff}
+.mini{width:200px;padding:14px}
+.mini img{width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.14)}
+.quote{font-size:14px;font-style:italic;margin-top:6px}
+.floater{position:fixed;animation:float 6s ease-in-out infinite;pointer-events:none}
+
+@keyframes float{
+  0%{transform:translateY(0px)}50%{transform:translateY(-20px)}100%{transform:translateY(0px)}
+}

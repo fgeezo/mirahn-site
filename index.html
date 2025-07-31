@@ -1,67 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>mirahn's space</title>
-    <link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>mirahn's vista zone</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="main-flex">
+<script src="script.js" defer></script>
 
-    <div class="window">
-        <div class="titlebar">drexel university</div>
-        <div>bachelor of science in computer engineering · class of ’26<br>
-            concentration in security technology<br>
-            software engineer @ lockheed martin (2 yrs)<br>
-            security monitoring co-op @ susquehanna international group
-        </div>
-    </div>
+<marquee behavior="scroll" direction="left" scrollamount="18" class="vista-bar">
+  welcome to mirahn's space ✦ enjoy the frutiger‑aero vibes ✦ listen to some tunes ✦ welcome to mirahn's space ✦
+</marquee>
 
-    <div class="window">
-        <div class="titlebar">music bio</div>
-        <div>shoegaze / ambient music producer<br>
-        kurate music collective<br>
-        50k monthly listeners · 250k streams monthly<br>
-        guitar player</div>
-    </div>
+<div class="desktop">
 
-    <div class="window music-player">
-        <div class="titlebar">now playing</div>
-        <img src="assets/img/snoopychilling.png" class="music-cover" id="music-cover" alt="cover">
-        <div class="music-meta" id="music-meta">instupendo – comfort chain</div>
-        <audio id="audio" controls autoplay></audio>
-        <div class="audio-controls">
-            <button id="prev-btn">⟵ prev</button>
-            <button id="play-btn">play/pause</button>
-            <button id="next-btn">next ⟶</button>
-        </div>
-    </div>
+  <!-- animated penguin -->
+  <img class="floater" src="assets/penguindance.gif" alt="dancing penguin" style="left:5%;top:220px;width:140px;">
 
-    <div class="window">
-        <div class="titlebar">moo.png</div>
-        <img src="assets/img/moo.png" alt="cow">
-    </div>
+  <!-- logo splash -->
+  <div class="glass box center">
+      <img class="spark" src="assets/explosion.gif" alt="">
+      <img class="logo" src="assets/mirahn_logo.png" alt="logo">
+      <img class="spark" src="assets/explosion.gif" alt="">
+      <img class="rainbow" src="assets/rainbow.gif" alt="">
+  </div>
 
-    <div class="window">
-        <div class="titlebar">mooooooooo.png</div>
-        <img src="assets/img/mooooooooo.png" alt="cow">
-    </div>
+  <!-- music player -->
+  <div class="glass box player">
+      <div class="title">now playing</div>
+      <img id="cover" src="assets/cover_placeholder.png" alt="cover">
+      <div id="track-meta">instupendo – comfort chain</div>
+      <audio id="audio" controls></audio>
+      <div class="controls">
+        <button id="prev">⟵ prev</button>
+        <button id="next">next ⟶</button>
+      </div>
+  </div>
 
-    <div class="window">
-        <div class="titlebar">snoopy_chillin.png</div>
-        <img src="assets/img/snoopychillin.png" alt="snoopy chillin">
-    </div>
+  <!-- about / bio -->
+  <div class="glass box bio">
+    <div class="title">about mirahn</div>
+    <p>cybersecurity analyst &amp; computer engineering student (drexel ’26).<br>
+       shoegaze / ambient music producer ~ 50k monthly listeners.<br>
+       president of something cool; highland cow enthusiast.<br>
+       this site is inspired by vista glass &amp; frutiger‑aero.</p>
+  </div>
 
-    <div class="window">
-        <div class="titlebar">mr_fox.png</div>
-        <img src="assets/img/mrfox.jpg" alt="mr fox">
-        <div style="font-size:14px;margin-top:8px;">“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</div>
-    </div>
-
-    <!-- Add more windows below as needed -->
+  <!-- image gallery windows -->
+  <div class="glass mini"><div class="title">moo.png</div><img src="assets/moo.png"></div>
+  <div class="glass mini"><div class="title">moooooooo.png</div><img src="assets/moooooooo.png"></div>
+  <div class="glass mini"><div class="title">mr_fox.png</div><img src="assets/mrfox.jpg"><p class="quote">“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</p></div>
+  <div class="glass mini"><div class="title">mycrib.png</div><img src="assets/mycrib.png"></div>
+  <div class="glass mini"><div class="title">mikeandikes.png</div><img src="assets/mikeandikes.png"></div>
+  <div class="glass mini"><div class="title">miloandmango.png</div><img src="assets/miloandmango.png"></div>
+  <div class="glass mini"><div class="title">sandysrocket.png</div><img src="assets/sandysrocket.png"></div>
 
 </div>
-<script src="assets/js/music.js"></script>
 </body>
 </html>
