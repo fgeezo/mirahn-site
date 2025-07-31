@@ -6,56 +6,51 @@ body{
   color:#000;
 }
 
-/* ===== endless ticker ================================================= */
-#ticker{position:relative;overflow:hidden;height:32px;
-  font:22px/32px "Segoe UI",Tahoma,Arial,sans-serif;font-weight:700;
+/* ===== endless ticker ===== */
+#ticker{position:relative;overflow:hidden;height:40px;
+  font:26px/40px "Segoe UI",Tahoma,Arial,sans-serif;font-weight:700;
   white-space:nowrap;background:rgba(255,255,255,.55);backdrop-filter:blur(6px)}
-#ticker span{position:absolute;animation:ticker 40s linear infinite}
+#ticker span{position:absolute;animation:ticker 50s linear infinite}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ===== desktop layout ================================================= */
+/* ===== desktop grid ===== */
 .desktop{
-  display:flex;flex-wrap:wrap;gap:6px;              /* snug 6-px spacing  */
-  padding:40px 18vw;                                /* wider side cushion */
+  display:flex;flex-wrap:wrap;gap:4px;                    /* tighter gap 4 px  */
+  padding:40px 12vw;                                      /* wider side margin */
   justify-content:center;
 }
 
-/* ===== XP/Vista window chrome ======================================== */
+/* ===== XP / Vista window chrome ===== */
 .win{position:relative;padding:46px 14px 18px;
   background:rgba(255,255,255,.66);backdrop-filter:blur(12px);
   border:1px solid #0a246a;border-radius:6px;
   box-shadow:inset 0 0 0 1px #ffffff80,0 3px 8px rgba(0,0,0,.35)}
 .win[data-title]{max-width:100%}
 
-/* title bar */
-.win::before{
-  content:attr(data-title);position:absolute;left:0;right:0;top:0;height:32px;
-  padding-left:12px;padding-right:120px;
-  border-top-left-radius:5px;border-top-right-radius:5px;
+.win::before{content:attr(data-title);position:absolute;left:0;right:0;top:0;height:32px;
+  padding-left:12px;padding-right:120px;border-top-left-radius:5px;border-top-right-radius:5px;
   background:linear-gradient(#4ba8ff 0%, #1674e2 45%, #0e5ed3 100%);
-  color:#fff;font:700 14px/32px "Segoe UI",Tahoma,Arial,sans-serif;
-  text-shadow:0 1px 0 #0007;overflow:hidden;white-space:nowrap}
+  color:#fff;font:700 15px/32px "Segoe UI",Tahoma,Arial,sans-serif;text-shadow:0 1px 0 #0007}
 
-/* separator line */
 .win::after{content:"";position:absolute;left:1px;right:1px;top:32px;height:1px;background:#ffffff99}
 
-/* window-controls */
+/* window buttons */
 .ctrl{position:absolute;top:6px;right:8px;display:flex;gap:4px}
 .ctrl div{width:14px;height:14px;cursor:pointer;border:1px solid #0a246a;border-radius:2px;
   background:linear-gradient(#fbfbfb 0%, #d4d4d4 100%);box-shadow:inset 0 0 0 1px #ffffff90}
-.ctrl .min{background:linear-gradient(#a6ffa6 0%, #28b428 100%)}/* green */
+.ctrl .min{background:linear-gradient(#a6ffa6 0%, #28b428 100%)} /* green first btn */
 .ctrl .close{background:linear-gradient(#ff7575 0%, #d80000 100%)}
 .ctrl div:hover{filter:brightness(1.18)}
 
-/* media inside windows */
+/* media */
 .win img{max-width:100%;display:block;margin:0 auto;border-radius:4px}
 figcaption{margin-top:4px;font-style:italic}
 
-/* player artwork fixed square */
+/* player artwork square */
 #art{width:100%;height:260px;object-fit:cover;border-radius:6px}
 
-/* bigger list text */
-.info li{font-size:15px;margin:0 0 4px 18px}
+/* bigger info text */
+.info li{font-size:16px;margin:0 0 5px 18px}
 
-/* basic reset */
+/* reset */
 ul{margin:0;padding:0}
