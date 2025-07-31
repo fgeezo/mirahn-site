@@ -19,28 +19,27 @@ body {
 }
 #ticker span {
   position: absolute;
-  /* animation is now set in JS */
+  /* animation set via JS: ticker 22s linear infinite */
 }
 @keyframes ticker {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
-/* ===== multicolumn masonry desktop ===== */
+/* ===== CSS Grid “masonry” desktop ===== */
 .desktop {
-  column-width: 320px;        /* ideal column base */
-  column-gap: 20px;           /* ↑ increased from 12px */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-auto-rows: 8px;    /* baseline row height */
+  grid-gap: 20px;         /* 20px both H & V */
+  padding: 40px 10vw;     /* cushions left/right */
   max-width: 1280px;
-  margin: 40px auto;
-  padding: 0 8px;
+  margin: 0 auto;
 }
+
+/* ===== window chrome ===== */
 .win {
-  display: inline-block;
-  width: 100%;                /* fill column width */
-  margin: 0 0 20px;           /* ↑ increased vertical gap */
-  break-inside: avoid;
   position: relative;
-  padding: 46px 14px 18px;
   background: rgba(255,255,255,0.66);
   backdrop-filter: blur(12px);
   border: 1px solid #0a246a;
@@ -48,13 +47,13 @@ body {
   box-shadow:
     inset 0 0 0 1px #ffffff80,
     0 3px 8px rgba(0,0,0,0.35);
+  padding: 46px 14px 18px;
 }
 
-/* ===== window chrome ===== */
+/* title bar */
 .win::before {
   content: attr(data-title);
-  position: absolute;
-  left: 0; right: 0; top: 0; height: 32px;
+  position: absolute; top: 0; left: 0; right: 0; height: 32px;
   padding: 0 120px 0 12px;
   background: linear-gradient(#4ba8ff, #1674e2 45%, #0e5ed3);
   color: #fff;
@@ -62,24 +61,24 @@ body {
   text-shadow: 0 1px 0 #0007;
   border-top-left-radius: 5px;
   border-top-right-radius:5px;
-  overflow: hidden;
-  white-space: nowrap;
+  overflow: hidden; white-space: nowrap;
 }
 .win::after {
   content: "";
-  position: absolute;
-  left:1px; right:1px; top:32px;
+  position: absolute; left:1px; right:1px; top:32px;
   height:1px; background:#ffffff99;
 }
 
-/* ===== buttons ===== */
+/* buttons */
 .ctrl {
-  position:absolute; top:6px; right:8px;
-  display:flex; gap:4px;
+  position: absolute;
+  top: 6px; right: 8px;
+  display: flex; gap: 4px;
 }
 .ctrl div {
   width:14px; height:14px;
-  border:1px solid #0a246a; border-radius:2px;
+  border:1px solid #0a246a;
+  border-radius:2px;
   background: linear-gradient(#fbfbfb, #d4d4d4);
   box-shadow: inset 0 0 0 1px #ffffff90;
   cursor: pointer;
@@ -89,7 +88,7 @@ body {
 .ctrl .close { background: linear-gradient(#ff7575, #d80000); }
 .ctrl div:hover { filter: brightness(1.18); }
 
-/* ===== media & text ===== */
+/* content */
 .win img {
   width: 100%;
   display: block;
@@ -105,10 +104,20 @@ figcaption {
   font-size: 17px;
   margin: 0 0 6px 18px;
 }
+
+/* player */
 #art {
   width:100%; height:260px;
   object-fit:cover;
   border-radius:6px;
 }
-button { cursor: pointer; }
-ul { margin: 0; padding: 0; }
+.buttons {
+  margin-top: 8px;
+  text-align: center;
+}
+.buttons button {
+  cursor: pointer;
+}
+
+/* reset */
+ul { margin:0; padding:0; }
