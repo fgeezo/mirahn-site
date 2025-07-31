@@ -3,62 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>mirahn's space</title>             <!-- 3. tab title fixed -->
+  <title>mirahn's space</title>
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<script src="script.js" defer></script>
 
-<!-- 2. ticker text changed -->
-<marquee behavior="scroll" direction="left" scrollamount="18" class="vista-bar">
-  frutiger aero supremacy &nbsp; frutiger aero supremacy &nbsp; frutiger aero supremacy &nbsp; frutiger aero supremacy &nbsp;
-</marquee>
-
-<div class="desktop">
-
-  <!-- penguin floater etc. (unchanged) -->
-  <img class="floater" src="assets/penguindance.gif" alt="dancing penguin" style="left:5%;top:220px;width:140px;">
-
-  <!-- logo splash -->
-  <div class="glass box center">
-      <img class="spark" src="assets/explosion.gif" alt="">
-      <img class="logo"  src="assets/mirahn_logo.png" alt="logo">
-      <img class="spark" src="assets/explosion.gif" alt="">
-      <img class="rainbow" src="assets/rainbow.gif"  alt="">
-  </div>
-
-  <!-- music player -->
-  <div class="glass box player">
-      <div class="title">now playing</div>
-      <img id="cover" src="assets/cover_placeholder.png" alt="cover">
-      <div id="track-meta">instupendo – comfort chain</div>
-      <audio id="audio" controls></audio>
-      <div class="controls">
-        <button id="prev">⟵ prev</button>
-        <button id="next">next ⟶</button>
-      </div>
-  </div>
-
-  <!-- about / bio -->
-  <div class="glass box bio">
-    <div class="title">about mirahn</div>
-    <p>cybersecurity analyst &amp; computer engineering student (drexel ’26).<br>
-       shoegaze / ambient music producer ~ 50k monthly listeners.<br>
-       highland cow enthusiast.</p>     <!-- 1. removed “president …” line -->
-  </div>
-
-  <!-- image gallery windows -->
-  <div class="glass mini"><div class="title">moo.png</div><img src="assets/moo.png"></div>
-  <div class="glass mini"><div class="title">moooooooo.png</div><img src="assets/moooooooo.png"></div>
-  <div class="glass mini"><div class="title">mr_fox.png</div>
-       <img src="assets/mrfox.jpg"><p class="quote">“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</p></div>
-  <div class="glass mini"><div class="title">mycrib.png</div><img src="assets/mycrib.png"></div>
-  <div class="glass mini"><div class="title">mikeandikes.png</div><img src="assets/mikeandikes.png"></div>
-  <div class="glass mini"><div class="title">miloandmango.png</div><img src="assets/miloandmango.png"></div>
-  <div class="glass mini"><div class="title">sandysrocket.png</div><img src="assets/sandysrocket.png"></div>
-
+<!-- infinite ticker ----------------------------------------------------->
+<div class="ticker">
+  <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+  <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
 </div>
+
+<!-- desktop ------------------------------------------------------------->
+<main class="desktop">
+
+  <!-- bio ---------------------------------------------------------------->
+  <section class="card bio">
+    <h2>drexel university</h2>
+    <p>bachelor of science in computer engineering · class of ’26<br>
+       concentration in security technology<br>
+       software engineer @ lockheed martin (2 yrs)<br>
+       security monitoring co-op @ susquehanna international group</p>
+  </section>
+
+  <section class="card bio">
+    <h2>music bio</h2>
+    <p>shoegaze / ambient music producer<br>
+       kurate music collective<br>
+       50k monthly listeners · 250k streams monthly<br>
+       guitar player</p>
+  </section>
+
+  <!-- player ------------------------------------------------------------->
+  <section class="card player">
+      <h2>now playing</h2>
+      <img id="cover" src="assets/snoopynightout.jpg" alt="cover">
+      <div id="track-meta">instupendo – comfort chain</div>
+      <audio id="audio" preload="auto"></audio>
+      <div class="controls">
+          <button id="prev">⟵ prev</button>
+          <button id="next">next ⟶</button>
+      </div>
+  </section>
+
+  <!-- gallery ------------------------------------------------------------>
+  <figure class="card"><img src="assets/cow1.png" alt=""><figcaption>moo.png</figcaption></figure>
+  <figure class="card"><img src="assets/cow2.png" alt=""><figcaption>moooooooo.png</figcaption></figure>
+  <figure class="card wide"><img src="assets/snoopy2.jpg" alt=""><figcaption>snoopy_chillin.png</figcaption></figure>
+  <figure class="card"><img src="assets/mrfox.jpg"   alt=""><figcaption>mr_fox.png</figcaption><p>“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</p></figure>
+
+  <!-- NEW IMAGES requested ---------------------------------------------->
+  <figure class="card"><img src="assets/mikeandikes.png" alt=""><figcaption>mikeandikes.png</figcaption></figure>
+  <figure class="card"><img src="assets/mycrib.png"      alt=""><figcaption>my crib</figcaption></figure>
+  <figure class="card"><img src="assets/miloandmango.png"alt=""><figcaption>miloandmango.png</figcaption></figure>
+  <figure class="card"><img src="assets/sandysrocket.png"alt=""><figcaption>sandysrocket.png</figcaption></figure>
+</main>
+
+<script src="script.js" defer></script>
 </body>
 </html>
