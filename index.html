@@ -8,13 +8,13 @@
 </head>
 <body>
 
-<!-- ░ ticker ░ -->
+<!-- ░ infinite ticker ░ -->
 <div id="ticker"><span>frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • </span></div>
 
 <!-- ░ desktop ░ -->
 <div class="desktop">
 
-  <!-- ------- info windows ------------------------------------------- -->
+  <!-- ░ info panes ░ -->
   <figure class="win info" data-title="drexel university">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <ul>
@@ -35,10 +35,10 @@
     </ul>
   </figure>
 
-  <!-- ------- now playing -------------------------------------------- -->
+  <!-- ░ now playing ░ -->
   <figure class="win" style="width:320px" data-title="now playing">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img id="art" src="assets/snoopychilling.png" alt="cover">
+    <img id="art" src="assets/snoopynightout.jpg" alt="cover">
     <figcaption id="trackname">instupendo – comfort chain</figcaption>
 
     <audio id="player" controls style="width:100%">
@@ -48,20 +48,15 @@
     <button id="next">next →</button>
   </figure>
 
-  <!-- ------- image windows ------------------------------------------ -->
-  <figure class="win" style="width:240px" data-title="moo.png">
+  <!-- ░ image tiles ░ -->
+  <figure class="win" style="width:250px" data-title="moo.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img src="assets/cow1.png" alt="cow">
+    <img src="assets/cow1.png" alt="highland cow">
   </figure>
 
   <figure class="win" style="width:260px" data-title="moooooooo.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img src="assets/cow2.png" alt="cow and calf">
-  </figure>
-
-  <figure class="win" style="width:360px" data-title="snoopy_chillin.png">
-    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img src="assets/snoopychilling.png" alt="snoopy">
+    <img src="assets/cow2.png" alt="highland cow and calf">
   </figure>
 
   <figure class="win" style="width:260px" data-title="mr_fox.png">
@@ -82,7 +77,7 @@
 
   <figure class="win" style="width:280px" data-title="miloandmango.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img src="assets/miloandmango.png" alt="birds">
+    <img src="assets/miloandmango.png" alt="milo and mango">
   </figure>
 
   <figure class="win" style="width:320px" data-title="sandysrocket.png">
@@ -91,30 +86,29 @@
   </figure>
 </div>
 
-<!-- ░ JS : ticker clone & audio playlist ░ -->
+<!-- ░ JS – seamless ticker & snoopy-only playlist ░ -->
 <script>
-/* duplicate ticker text until >50% width so animation is seamless */
-const t=document.querySelector('#ticker span');
-while(t.offsetWidth<window.innerWidth*2){t.textContent+=t.textContent}
+/* ---- ticker ---- */
+const tik=document.querySelector('#ticker span');
+while(tik.offsetWidth<window.innerWidth*2){tik.textContent+=tik.textContent}
 
-/* simple playlist (aquatic ambience removed) */
+/* ---- playlist (SNOOPY images only, equal-sized) ---- */
 const tracks=[
-  {src:"assets/comfort_chain.mp3",art:"assets/snoopychilling.png",title:"instupendo – comfort chain"},
-  {src:"assets/mistake.mp3",      art:"assets/mrfox.jpg",        title:"lots of hands – mistake"},
-  {src:"assets/tell_me.mp3",      art:"assets/snoopy1.jpg",      title:"jack-o-lantern – tell me"},
-  {src:"assets/mice_on_venus.mp3",art:"assets/robloxhouse.jpg",  title:"c418 – mice on venus"},
-  {src:"assets/warm_nights.mp3",  art:"assets/miloandmango.png", title:"xori – warm nights"}
+  {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg", title:"instupendo – comfort chain"},
+  {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",   title:"lots of hands – mistake"},
+  {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",   title:"jack-o-lantern – tell me"},
+  {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png",title:"c418 – mice on venus"},
+  {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png", title:"xori – warm nights"}
 ];
-let i=0, player=document.getElementById('player');
+let idx=0, player=document.getElementById('player');
 const art=document.getElementById('art'), name=document.getElementById('trackname');
 function load(n){
-  i=(n+tracks.length)%tracks.length;
-  player.src=tracks[i].src; art.src=tracks[i].art; name.textContent=tracks[i].title;
-  player.play().catch(()=>{});
-}
-document.getElementById('prev').onclick=_=>load(i-1);
-document.getElementById('next').onclick=_=>load(i+1);
-player.onended=_=>load(i+1);
+  idx=(n+tracks.length)%tracks.length;
+  player.src=tracks[idx].src; art.src=tracks[idx].art; name.textContent=tracks[idx].title;
+  player.play().catch(()=>{});}
+document.getElementById('prev').onclick=_=>load(idx-1);
+document.getElementById('next').onclick=_=>load(idx+1);
+player.onended=_=>load(idx+1);
 load(0);
 </script>
 </body>
