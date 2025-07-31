@@ -1,70 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>mirahn's space</title>
-  <link rel="icon" href="assets/favicon.ico">
+  <meta charset="utf-8">
+  <title>mirahn’s space</title>
+  <link rel="icon" href="assets/woodstock1.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- infinite ticker ----------------------------------------------------->
-<div class="ticker">
-  <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-  <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-</div>
+  <!-- ───────────── ticker ───────────── -->
+  <div class="ticker">
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
+  </div>
 
-<!-- desktop ------------------------------------------------------------->
-<main class="desktop">
+  <!-- ───────────── desktop grid ───────────── -->
+  <section class="desktop">
 
-  <!-- bio ---------------------------------------------------------------->
-  <section class="card bio">
-    <h2>drexel university</h2>
-    <p>bachelor of science in computer engineering · class of ’26<br>
-       concentration in security technology<br>
-       software engineer @ lockheed martin (2 yrs)<br>
-       security monitoring co-op @ susquehanna international group</p>
-  </section>
+    <!-- bios -->
+    <figure class="win bio">
+      <figcaption>drexel university</figcaption>
+      <p>bachelor of science in computer engineering · class of ’26</p>
+      <p>concentration in security technology</p>
+      <p>software engineer @ lockheed martin (2 yrs)</p>
+      <p>security monitoring co-op @ susquehanna international group</p>
+    </figure>
 
-  <section class="card bio">
-    <h2>music bio</h2>
-    <p>shoegaze / ambient music producer<br>
-       kurate music collective<br>
-       50k monthly listeners · 250k streams monthly<br>
-       guitar player</p>
-  </section>
+    <figure class="win bio">
+      <figcaption>music bio</figcaption>
+      <p>shoegaze / ambient music producer</p>
+      <p>kurate music collective</p>
+      <p>50k monthly listeners · 250k streams monthly</p>
+      <p>guitar player</p>
+    </figure>
 
-  <!-- player ------------------------------------------------------------->
-  <section class="card player">
-      <h2>now playing</h2>
-      <img id="cover" src="assets/snoopynightout.jpg" alt="cover">
-      <div id="track-meta">instupendo – comfort chain</div>
-      <audio id="audio" preload="auto"></audio>
-      <div class="controls">
-          <button id="prev">⟵ prev</button>
-          <button id="next">next ⟶</button>
+    <!-- player -->
+    <figure class="win wide">
+      <figcaption>now playing</figcaption>
+      <img id="cover" src="assets/snoopynightout.jpg" alt="">
+      <figcaption id="meta">instupendo – comfort chain</figcaption>
+
+      <audio id="player" controls preload="auto"></audio>
+      <div class="btnRow">
+        <button id="prev">⟵ prev</button>
+        <button id="next">next ⟶</button>
       </div>
+    </figure>
+
+    <!-- gallery (examples – add / remove as you like) -->
+    <figure class="win"><figcaption>moo.png</figcaption><img src="assets/cow1.png"></figure>
+    <figure class="win"><figcaption>moooooooo.png</figcaption><img src="assets/cow2.png"></figure>
+
+    <figure class="win wide">
+      <figcaption>snoopy_chillin.png</figcaption>
+      <p class="quote">“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</p>
+      <img src="assets/snoopy2.jpg">
+    </figure>
+
+    <figure class="win"><figcaption>mr_fox.png</figcaption><img src="assets/mrfox.jpg"></figure>
+    <figure class="win wide"><figcaption>mikeandikes.png</figcaption><img src="assets/mikeandikes.png"></figure>
+    <figure class="win"><figcaption>my crib</figcaption><img src="assets/mycrib.png"></figure>
+    <figure class="win"><figcaption>miloandmango.png</figcaption><img src="assets/miloandmango.png"></figure>
+    <figure class="win"><figcaption>sandysrocket.png</figcaption><img src="assets/sandysrocket.png"></figure>
+
   </section>
 
-  <!----- gallery – add “win” class to every card & fix captions -------------->
-<figure class="card win"><img src="assets/cow1.png"><figcaption>moo.png</figcaption></figure>
-<figure class="card win"><img src="assets/cow2.png"><figcaption>moooooooo.png</figcaption></figure>
-
-<!-- snoopy with caption ABOVE & tight padding -->
-<figure class="card win wide">
-   <figcaption style="margin-bottom:4px">snoopy_chillin.png<br><em>“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</em></figcaption>
-   <img src="assets/snoopy2.jpg">
-</figure>
-
-<figure class="card win"><img src="assets/mrfox.jpg"><figcaption>mr_fox.png</figcaption></figure>
-
-<!-- NEW images now load -->
-<figure class="card win wide"><img src="assets/mikeandikes.png"><figcaption>mikeandikes.png</figcaption></figure>
-<figure class="card win"><img src="assets/mycrib.png"><figcaption>my crib</figcaption></figure>
-<figure class="card win"><img src="assets/miloandmango.png"><figcaption>miloandmango.png</figcaption></figure>
-<figure class="card win"><img src="assets/sandysrocket.png"><figcaption>sandysrocket.png</figcaption></figure>
-
-<script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
