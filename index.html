@@ -8,13 +8,13 @@
 </head>
 <body>
 
-<!-- ░ infinite ticker ░ -->
+<!-- ░ ticker ░ -->
 <div id="ticker"><span>frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • </span></div>
 
 <!-- ░ desktop ░ -->
 <div class="desktop">
 
-  <!-- ░ info panes ░ -->
+  <!-- info -->
   <figure class="win info" data-title="drexel university">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <ul>
@@ -35,7 +35,7 @@
     </ul>
   </figure>
 
-  <!-- ░ now playing ░ -->
+  <!-- now playing -->
   <figure class="win" style="width:320px" data-title="now playing">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img id="art" src="assets/snoopynightout.jpg" alt="cover">
@@ -48,8 +48,8 @@
     <button id="next">next →</button>
   </figure>
 
-  <!-- ░ image tiles ░ -->
-  <figure class="win" style="width:250px" data-title="moo.png">
+  <!-- images (various native sizes) -->
+  <figure class="win" style="width:260px" data-title="moo.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/cow1.png" alt="highland cow">
   </figure>
@@ -65,40 +65,41 @@
     <img src="assets/mrfox.jpg" alt="mr fox">
   </figure>
 
-  <figure class="win" style="width:320px" data-title="mikeandikes.png">
+  <figure class="win" style="width:370px" data-title="mikeandikes.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/mikeandikes.png" alt="mike and ike tropical typhoon">
   </figure>
 
-  <figure class="win" style="width:280px" data-title="my_crib.png">
+  <figure class="win" style="width:300px" data-title="my_crib.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/robloxhouse.jpg" alt="my crib">
   </figure>
 
-  <figure class="win" style="width:280px" data-title="miloandmango.png">
+  <figure class="win" style="width:300px" data-title="miloandmango.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/miloandmango.png" alt="milo and mango">
   </figure>
 
-  <figure class="win" style="width:320px" data-title="sandysrocket.png">
+  <figure class="win" style="width:340px" data-title="sandysrocket.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/sandysrocket.png" alt="sandy's rocket">
   </figure>
+
 </div>
 
-<!-- ░ JS – seamless ticker & snoopy-only playlist ░ -->
+<!-- ░ JavaScript ░ -->
 <script>
-/* ---- ticker ---- */
+/* ---- endless ticker ---- */
 const tik=document.querySelector('#ticker span');
 while(tik.offsetWidth<window.innerWidth*2){tik.textContent+=tik.textContent}
 
-/* ---- playlist (SNOOPY images only, equal-sized) ---- */
+/* ---- audio player with Snoopy-only artwork ---- */
 const tracks=[
-  {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg", title:"instupendo – comfort chain"},
-  {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",   title:"lots of hands – mistake"},
-  {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",   title:"jack-o-lantern – tell me"},
-  {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png",title:"c418 – mice on venus"},
-  {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png", title:"xori – warm nights"}
+ {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg", title:"instupendo – comfort chain"},
+ {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",   title:"lots of hands – mistake"},
+ {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",   title:"jacko / christmas – tell me"},
+ {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png",title:"c418 – mice on venus"},
+ {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png", title:"xori – warm nights"}
 ];
 let idx=0, player=document.getElementById('player');
 const art=document.getElementById('art'), name=document.getElementById('trackname');
