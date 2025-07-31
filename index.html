@@ -115,21 +115,21 @@
   <script>
     // infinitely repeat ticker
     const span = document.querySelector('#ticker span');
-    let txt = span.textContent;
+    let txt = span.textContent.trim();
     // pad so it's long enough
     while (span.offsetWidth < window.innerWidth * 4) {
       span.textContent += ' ' + txt;
     }
-    // faster loop
-    span.style.animation = 'ticker 20s linear infinite';
+    // slower by 10%
+    span.style.animation = 'ticker 22s linear infinite';
 
-    // snoopy–only player
+    // snoopy‐only player
     const tracks = [
       {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg", title:"instupendo – comfort chain"},
-      {src:"assets/mistake.mp3", art:"assets/snoopyeating.png", title:"lots of hands – mistake"},
-      {src:"assets/tell_me.mp3", art:"assets/snoopyriding.png", title:"jacko / christmas – tell me"},
+      {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",     title:"lots of hands – mistake"},
+      {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",     title:"jacko / christmas – tell me"},
       {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png", title:"c418 – mice on venus"},
-      {src:"assets/warm_nights.mp3", art:"assets/snoopychilling.png", title:"xori – warm nights"}
+      {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png",   title:"xori – warm nights"}
     ];
     let idx = 0;
     const player = document.getElementById('player'),
@@ -140,11 +140,11 @@
       player.src = tracks[idx].src;
       art.src    = tracks[idx].art;
       cap.textContent = tracks[idx].title;
-      player.play().catch(() => {});
+      player.play().catch(()=>{});
     }
-    document.getElementById('prev').onclick = _ => load(idx - 1);
-    document.getElementById('next').onclick = _ => load(idx + 1);
-    player.onended = _ => load(idx + 1);
+    document.getElementById('prev').onclick = ()=> load(idx - 1);
+    document.getElementById('next').onclick = ()=> load(idx + 1);
+    player.onended = ()=> load(idx + 1);
     load(0);
   </script>
 
