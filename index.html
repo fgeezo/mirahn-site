@@ -9,12 +9,14 @@
 <body>
 
 <!-- ░ ticker ░ -->
-<div id="ticker"><span>frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • </span></div>
+<div id="ticker">
+  <span>frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • </span>
+</div>
 
 <!-- ░ desktop ░ -->
 <div class="desktop">
 
-  <!-- info -->
+  <!-- === info panes === -->
   <figure class="win info" data-title="drexel university">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <ul>
@@ -35,7 +37,7 @@
     </ul>
   </figure>
 
-  <!-- now playing -->
+  <!-- === now playing === -->
   <figure class="win" style="width:320px" data-title="now playing">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img id="art" src="assets/snoopynightout.jpg" alt="cover">
@@ -48,24 +50,24 @@
     <button id="next">next →</button>
   </figure>
 
-  <!-- images (various native sizes) -->
-  <figure class="win" style="width:260px" data-title="moo.png">
+  <!-- === image tiles (native aspect) === -->
+  <figure class="win" style="width:250px" data-title="moo.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/cow1.png" alt="highland cow">
   </figure>
 
-  <figure class="win" style="width:260px" data-title="moooooooo.png">
+  <figure class="win" style="width:250px" data-title="moooooooo.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/cow2.png" alt="highland cow and calf">
   </figure>
 
-  <figure class="win" style="width:260px" data-title="mr_fox.png">
+  <figure class="win" style="width:250px" data-title="mr_fox.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <figcaption>“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</figcaption>
     <img src="assets/mrfox.jpg" alt="mr fox">
   </figure>
 
-  <figure class="win" style="width:370px" data-title="mikeandikes.png">
+  <figure class="win" style="width:420px" data-title="mikeandikes.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/mikeandikes.png" alt="mike and ike tropical typhoon">
   </figure>
@@ -80,26 +82,25 @@
     <img src="assets/miloandmango.png" alt="milo and mango">
   </figure>
 
-  <figure class="win" style="width:340px" data-title="sandysrocket.png">
+  <figure class="win" style="width:380px" data-title="sandysrocket.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/sandysrocket.png" alt="sandy's rocket">
   </figure>
-
 </div>
 
 <!-- ░ JavaScript ░ -->
 <script>
-/* ---- endless ticker ---- */
+/* ---- ticker repeat ---- */
 const tik=document.querySelector('#ticker span');
 while(tik.offsetWidth<window.innerWidth*2){tik.textContent+=tik.textContent}
 
-/* ---- audio player with Snoopy-only artwork ---- */
+/* ---- player with fixed-size art ---- */
 const tracks=[
- {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg", title:"instupendo – comfort chain"},
- {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",   title:"lots of hands – mistake"},
- {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",   title:"jacko / christmas – tell me"},
- {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png",title:"c418 – mice on venus"},
- {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png", title:"xori – warm nights"}
+ {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg",   title:"instupendo – comfort chain"},
+ {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",     title:"lots of hands – mistake"},
+ {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",     title:"jacko / christmas – tell me"},
+ {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png", title:"c418 – mice on venus"},
+ {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png",   title:"xori – warm nights"}
 ];
 let idx=0, player=document.getElementById('player');
 const art=document.getElementById('art'), name=document.getElementById('trackname');
