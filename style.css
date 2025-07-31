@@ -10,20 +10,23 @@ body{
 #ticker{position:relative;overflow:hidden;height:48px;
   font:32px/48px "Segoe UI",Tahoma,Arial,sans-serif;font-weight:700;
   white-space:nowrap;background:rgba(255,255,255,.55);backdrop-filter:blur(6px)}
-#ticker span{position:absolute;animation:ticker 55s linear infinite}
+#ticker span{position:absolute;animation:ticker 45s linear infinite}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ===== desktop grid ===== */
+/* ===== masonry “desktop” ===== */
 .desktop{
-  display:flex;flex-wrap:wrap;gap:1px;              /* very tight gap      */
-  padding:40px 24vw;                               /* larger side margin  */
-  max-width:1400px;margin:0 auto;                  /* keep everything centred */
-  justify-content:center;align-items:flex-start;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  grid-auto-rows:8px;                      /* base row size for calc   */
+  grid-gap:6px;                           /* snug gap between windows */
+  padding:40px 22vw;                      /* big L/R margin → centred */
+  max-width:1280px;margin:0 auto;
+  justify-content:center;
 }
 
-/* ===== XP/Vista window chrome ===== */
+/* ===== XP/Vista-style window chrome ===== */
 .win{position:relative;padding:46px 14px 18px;
-  background:rgba(255,255,255,.66);backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.67);backdrop-filter:blur(12px);
   border:1px solid #0a246a;border-radius:6px;
   box-shadow:inset 0 0 0 1px #ffffff80,0 3px 8px rgba(0,0,0,.35)}
 .win[data-title]{max-width:100%}
