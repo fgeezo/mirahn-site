@@ -16,7 +16,7 @@
 <!-- ░ desktop ░ -->
 <div class="desktop">
 
-  <!-- 1 ▪ info (left) -->
+  <!-- top-row info + player in the centre -->
   <figure class="win info" data-title="drexel university" style="width:270px">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <ul>
@@ -27,7 +27,6 @@
     </ul>
   </figure>
 
-  <!-- 2 ▪ now-playing (centre) -->
   <figure class="win" style="width:320px" data-title="now playing">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img id="art" src="assets/snoopynightout.jpg" alt="cover">
@@ -40,7 +39,6 @@
     <button id="next">next →</button>
   </figure>
 
-  <!-- 3 ▪ music bio (right) -->
   <figure class="win info" data-title="music bio" style="width:270px">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <ul>
@@ -51,15 +49,10 @@
     </ul>
   </figure>
 
-  <!-- lower rows – images shuffled so cows not adjacent -->
+  <!-- image tiles (order so cows not adjacent) -->
   <figure class="win" style="width:420px" data-title="mikeandikes.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/mikeandikes.png" alt="mike and ike tropical typhoon">
-  </figure>
-
-  <figure class="win" style="width:300px" data-title="my_crib.png">
-    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img src="assets/robloxhouse.jpg" alt="my crib">
   </figure>
 
   <figure class="win" style="width:250px" data-title="moo.png">
@@ -67,14 +60,19 @@
     <img src="assets/cow1.png" alt="highland cow">
   </figure>
 
-  <figure class="win" style="width:300px" data-title="miloandmango.png">
+  <figure class="win" style="width:300px" data-title="my_crib.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img src="assets/miloandmango.png" alt="milo and mango">
+    <img src="assets/robloxhouse.jpg" alt="my crib">
   </figure>
 
   <figure class="win" style="width:250px" data-title="moooooooo.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/cow2.png" alt="highland cow and calf">
+  </figure>
+
+  <figure class="win" style="width:300px" data-title="miloandmango.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/miloandmango.png" alt="milo and mango">
   </figure>
 
   <figure class="win" style="width:250px" data-title="mr_fox.png">
@@ -87,6 +85,7 @@
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/sandysrocket.png" alt="sandy's rocket">
   </figure>
+
 </div>
 
 <!-- ░ JavaScript ░ -->
@@ -106,12 +105,12 @@ const tracks=[
 let idx=0;
 const player=document.getElementById('player'),
       art=document.getElementById('art'),
-      cap=document.getElementById('trackname');
+      title=document.getElementById('trackname');
 function load(n){
   idx=(n+tracks.length)%tracks.length;
   player.src=tracks[idx].src;
   art.src   =tracks[idx].art;
-  cap.textContent=tracks[idx].title;
+  title.textContent=tracks[idx].title;
   player.play().catch(()=>{});
 }
 document.getElementById('prev').onclick=_=>load(idx-1);
