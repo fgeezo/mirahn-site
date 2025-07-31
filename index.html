@@ -157,7 +157,20 @@
     }
     window.addEventListener('load',  resizeAll);
     window.addEventListener('resize',resizeAll);
-
+    
+        // ── masonry row‐span calc ──
+    function resizeAll(){
+      const grid = document.querySelector('.desktop'),
+            rowH = parseInt(getComputedStyle(grid).getPropertyValue('grid-auto-rows')),
+            gap  = parseInt(getComputedStyle(grid).getPropertyValue('gap'));
+      grid.querySelectorAll('.win').forEach(item=>{
+        const h = item.getBoundingClientRect().height;
+        const span = Math.ceil((h + gap) / (rowH + gap));
+        item.style.gridRowEnd = 'span ' + span;
+      });
+    }
+    window.addEventListener('load',  resizeAll);
+    window.addEventListener('resize',resizeAll);
   </script>
 </body>
 </html>
