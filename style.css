@@ -26,20 +26,25 @@ body {
   to   { transform: translateX(-50%); }
 }
 
-/* ===== CSS Grid “masonry” desktop ===== */
+/* ===== multicolumn “masonry” desktop ===== */
 .desktop {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  grid-auto-rows: 8px;    /* baseline row height */
-  grid-gap: 20px;         /* 20px both H & V */
-  padding: 40px 10vw;     /* cushions left/right */
+  /* base column width & enforced gutters */
+  column-width: 300px;
+  column-gap: 20px;
+  column-fill: auto;      /* don’t try to balance columns */
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 40px auto;
+  padding: 0 8px;
 }
 
-/* ===== window chrome ===== */
+/* each window fills its column, with vertical gutter */
 .win {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 20px;            /* 20px vertical gap */
+  break-inside: avoid-column;  /* prevent splitting in column */
   position: relative;
+  padding: 46px 14px 18px;
   background: rgba(255,255,255,0.66);
   backdrop-filter: blur(12px);
   border: 1px solid #0a246a;
@@ -47,7 +52,6 @@ body {
   box-shadow:
     inset 0 0 0 1px #ffffff80,
     0 3px 8px rgba(0,0,0,0.35);
-  padding: 46px 14px 18px;
 }
 
 /* title bar */
