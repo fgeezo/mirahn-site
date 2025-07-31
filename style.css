@@ -13,12 +13,15 @@ body{
 #ticker span{position:absolute;animation:ticker 55s linear infinite}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ===== desktop grid ===== */
+/* ===== “desktop” – packed grid, centred column ===== */
 .desktop{
-  display:flex;flex-wrap:wrap;gap:1px;              /* very tight gap      */
-  padding:40px 24vw;                               /* larger side margin  */
-  max-width:1400px;margin:0 auto;                  /* keep everything centred */
-  justify-content:center;align-items:flex-start;
+  display:grid;
+  grid-auto-flow:row dense;
+  grid-template-columns:repeat(auto-fit,minmax(230px,max-content));
+  gap:6px;                              /* snug gap between windows   */
+  padding:45px 26vw;                    /* wider L/R margin → centre  */
+  justify-content:center;
+  max-width:1320px;margin:0 auto;       /* keep whole block centred   */
 }
 
 /* ===== XP/Vista window chrome ===== */
@@ -36,7 +39,7 @@ body{
   text-shadow:0 1px 0 #0007;white-space:nowrap;overflow:hidden}
 .win::after{content:"";position:absolute;left:1px;right:1px;top:32px;height:1px;background:#ffffff99}
 
-/* window buttons */
+/*  window buttons  */
 .ctrl{position:absolute;top:6px;right:8px;display:flex;gap:4px}
 .ctrl div{width:14px;height:14px;border:1px solid #0a246a;border-radius:2px;cursor:pointer;
   background:linear-gradient(#fbfbfb 0%, #d4d4d4 100%);
