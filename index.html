@@ -2,80 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>mirahn’s space</title>
-  <link rel="icon" href="assets/woodstock1.png">
+  <title>mirahn's space</title>
+  <link rel="icon" href="assets/steamlogo.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ───────────── ticker ───────────── -->
-  <div class="ticker">
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-    <span>frutiger aero supremacy&nbsp;•&nbsp;</span>
-  </div>
+<!-- ░░ ticker ░░ -->
+<div id="ticker"><span>frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • frutiger aero supremacy • </span></div>
 
-  <!-- ───────────── desktop grid ───────────── -->
-  <section class="desktop">
+<!-- ░░ desktop ░░ -->
+<div class="desktop">
 
-    <!-- bios -->
-    <figure class="win bio">
-      <figcaption>drexel university</figcaption>
-      <p>bachelor of science in computer engineering · class of ’26</p>
-      <p>concentration in security technology</p>
-      <p>software engineer @ lockheed martin (2 yrs)</p>
-      <p>security monitoring co-op @ susquehanna international group</p>
-    </figure>
+  <!-- drexel window -->
+  <figure class="win" data-title="drexel university">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <ul>
+      <li>bachelor of science in computer engineering&nbsp;· class of ’26</li>
+      <li>concentration in security technology</li>
+      <li>software engineer @ lockheed martin (2 yrs)</li>
+      <li>security monitoring co-op @ susquehanna international group</li>
+    </ul>
+  </figure>
 
-    <figure class="win bio">
-      <figcaption>music bio</figcaption>
-      <p>shoegaze / ambient music producer</p>
-      <p>kurate music collective</p>
-      <p>50k monthly listeners · 250k streams monthly</p>
-      <p>guitar player</p>
-    </figure>
+  <!-- music bio -->
+  <figure class="win" data-title="music bio">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <ul>
+      <li>shoegaze / ambient music producer</li>
+      <li>kurate music collective</li>
+      <li>50k monthly listeners · 250k streams monthly</li>
+      <li>guitar player</li>
+    </ul>
+  </figure>
 
-    <!-- player -->
-    <figure class="win wide">
-      <figcaption>now playing</figcaption>
-      <img id="cover" src="assets/snoopynightout.jpg" alt="">
-      <figcaption id="meta">instupendo – comfort chain</figcaption>
+  <!-- now playing – music player -->
+  <figure class="win" style="width:320px" data-title="now playing">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
 
-      <audio id="player" controls preload="auto"></audio>
-      <div class="btnRow">
-        <button id="prev">⟵ prev</button>
-        <button id="next">next ⟶</button>
-      </div>
-    </figure>
+    <img id="art" src="assets/snoopychilling.png" alt="cover">
+    <figcaption id="trackname">instupendo – comfort chain</figcaption>
 
-    <!-- gallery (examples – add / remove as you like) -->
-    <figure class="win"><figcaption>moo.png</figcaption><img src="assets/cow1.png"></figure>
-    <figure class="win"><figcaption>moooooooo.png</figcaption><img src="assets/cow2.png"></figure>
+    <audio id="player" controls style="width:100%">
+      <source src="assets/comfort_chain.mp3" type="audio/mpeg">
+    </audio><br>
+    <button id="prev">← prev</button>
+    <button id="next">next →</button>
+  </figure>
 
-    <figure class="win wide">
-      <figcaption>snoopy_chillin.png</figcaption>
-      <p class="quote">“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</p>
-      <img src="assets/snoopy2.jpg">
-    </figure>
+  <!-- cow images -->
+  <figure class="win" style="width:240px" data-title="moo.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/cow1.png" alt="cow">
+  </figure>
 
-    <figure class="win"><figcaption>mr_fox.png</figcaption><img src="assets/mrfox.jpg"></figure>
-    <figure class="win wide"><figcaption>mikeandikes.png</figcaption><img src="assets/mikeandikes.png"></figure>
-    <figure class="win"><figcaption>my crib</figcaption><img src="assets/mycrib.png"></figure>
-    <figure class="win"><figcaption>miloandmango.png</figcaption><img src="assets/miloandmango.png"></figure>
-    <figure class="win"><figcaption>sandysrocket.png</figcaption><img src="assets/sandysrocket.png"></figure>
+  <figure class="win" style="width:240px" data-title="moooooooo.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/cow2.png" alt="cow and calf">
+  </figure>
 
-  </section>
+  <!-- snoopy chillin -->
+  <figure class="win" style="width:360px" data-title="snoopy_chillin.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <figcaption>“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</figcaption>
+    <img src="assets/snoopychilling.png" alt="snoopy">
+  </figure>
 
-  <script src="script.js"></script>
+  <!-- mr fox -->
+  <figure class="win" style="width:220px" data-title="mr_fox.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/mrfox.jpg" alt="mr fox">
+  </figure>
+
+  <!-- mike and ike -->
+  <figure class="win" style="width:320px" data-title="mikeandikes.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/mikeandikes.png" alt="mike and ikes tropical typhoon">
+  </figure>
+
+  <!-- roblox crib -->
+  <figure class="win" style="width:280px" data-title="my_crib.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/robloxhouse.jpg" alt="my crib">
+  </figure>
+
+  <!-- milo and mango -->
+  <figure class="win" style="width:280px" data-title="miloandmango.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/5fda8175-280e-4788-98f5-58559bd0b06e.png" alt="birds">
+  </figure>
+
+  <!-- sandy's rocket -->
+  <figure class="win" style="width:320px" data-title="sandysrocket.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/sandysrocket.png" alt="spongebob rocket">
+  </figure>
+</div>
+
+<!-- ░░ minimal JS for player + endless ticker clone ░░ -->
+<script>
+/* endless ticker span duplication */
+const t=document.querySelector('#ticker span');
+while(t.offsetWidth<window.innerWidth*2){t.innerHTML+=t.innerHTML}
+
+/* simple audio playlist */
+const tracks=[
+  {src:"assets/comfort_chain.mp3",art:"assets/snoopychilling.png",title:"instupendo – comfort chain"},
+  {src:"assets/mistake.mp3",      art:"assets/mrfox.jpg",        title:"lots of hands – mistake"},
+  {src:"assets/tell_me.mp3",      art:"assets/snoopy1.jpg",      title:"jack-o-lantern – tell me"},
+  {src:"assets/aquatic_ambience.mp3", art:"assets/aquatic_ambience.mp3",title:"scizzie – aquatic ambience"},
+  {src:"assets/mice_on_venus.mp3",art:"assets/robloxhouse.jpg", title:"c418 – mice on venus"},
+  {src:"assets/warm_nights.mp3",  art:"assets/5fda8175-280e-4788-98f5-58559bd0b06e.png",title:"xori – warm nights"}
+];
+let i=0, player=document.getElementById('player');
+const art=document.getElementById('art'), name=document.getElementById('trackname');
+function load(n){
+  i=(n+tracks.length)%tracks.length;
+  player.src=tracks[i].src; art.src=tracks[i].art; name.textContent=tracks[i].title;
+  player.play().catch(()=>{});                 /* silent fail if blocked */
+}
+document.getElementById('prev').onclick=_=>load(i-1);
+document.getElementById('next').onclick=_=>load(i+1);
+player.onended=_=>load(i+1);
+load(0);                                       /* autoplay first */
+</script>
 </body>
 </html>
