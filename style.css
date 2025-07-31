@@ -10,17 +10,18 @@ body{
 #ticker{position:relative;overflow:hidden;height:48px;
   font:32px/48px "Segoe UI",Tahoma,Arial,sans-serif;font-weight:700;
   white-space:nowrap;background:rgba(255,255,255,.55);backdrop-filter:blur(6px)}
-#ticker span{position:absolute;animation:ticker 70s linear infinite}
+#ticker span{position:absolute;animation:ticker 55s linear infinite}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ===== desktop grid ===== */
 .desktop{
-  display:flex;flex-wrap:wrap;gap:2px;         /* tighter 2-px gap       */
-  padding:40px 18vw;                           /* wider L/R margin       */
-  justify-content:center;align-items:flex-start
+  display:flex;flex-wrap:wrap;gap:1px;              /* very tight gap      */
+  padding:40px 24vw;                               /* larger side margin  */
+  max-width:1400px;margin:0 auto;                  /* keep everything centred */
+  justify-content:center;align-items:flex-start;
 }
 
-/* ===== XP-/Vista-style window chrome ===== */
+/* ===== XP/Vista window chrome ===== */
 .win{position:relative;padding:46px 14px 18px;
   background:rgba(255,255,255,.66);backdrop-filter:blur(12px);
   border:1px solid #0a246a;border-radius:6px;
@@ -29,14 +30,13 @@ body{
 
 /* title bar */
 .win::before{content:attr(data-title);position:absolute;left:0;right:0;top:0;height:32px;
-  padding-left:12px;padding-right:120px;
-  border-top-left-radius:5px;border-top-right-radius:5px;
+  padding-left:12px;padding-right:120px;border-top-left-radius:5px;border-top-right-radius:5px;
   background:linear-gradient(#4ba8ff 0%, #1674e2 45%, #0e5ed3 100%);
   color:#fff;font:700 15px/32px "Segoe UI",Tahoma,Arial,sans-serif;
   text-shadow:0 1px 0 #0007;white-space:nowrap;overflow:hidden}
 .win::after{content:"";position:absolute;left:1px;right:1px;top:32px;height:1px;background:#ffffff99}
 
-/*  window buttons  */
+/* window buttons */
 .ctrl{position:absolute;top:6px;right:8px;display:flex;gap:4px}
 .ctrl div{width:14px;height:14px;border:1px solid #0a246a;border-radius:2px;cursor:pointer;
   background:linear-gradient(#fbfbfb 0%, #d4d4d4 100%);
@@ -50,10 +50,10 @@ body{
 .win img{max-width:100%;display:block;margin:0 auto;border-radius:4px}
 figcaption{margin:6px 0 0;font-size:13px;font-style:italic}
 
-/* player square art */
+/* square art in player */
 #art{width:100%;height:260px;object-fit:cover;border-radius:6px}
 
-/*  bigger info text */
+/* bigger info text */
 .info li{font-size:17px;margin:0 0 6px 18px}
 
 /* reset */
