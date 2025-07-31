@@ -16,8 +16,8 @@
 <!-- ░ desktop ░ -->
 <div class="desktop">
 
-  <!-- === info panes === -->
-  <figure class="win info" data-title="drexel university">
+  <!-- top-row info + player in the centre -->
+  <figure class="win info" data-title="drexel university" style="width:270px">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <ul>
       <li>bachelor of science in computer engineering · class of ’26</li>
@@ -27,17 +27,6 @@
     </ul>
   </figure>
 
-  <figure class="win info" data-title="music bio">
-    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <ul>
-      <li>shoegaze / ambient music producer</li>
-      <li>kurate music collective</li>
-      <li>50k monthly listeners · 250k streams monthly</li>
-      <li>guitar player</li>
-    </ul>
-  </figure>
-
-  <!-- === now playing === -->
   <figure class="win" style="width:320px" data-title="now playing">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img id="art" src="assets/snoopynightout.jpg" alt="cover">
@@ -50,15 +39,40 @@
     <button id="next">next →</button>
   </figure>
 
-  <!-- === image tiles (native aspect) === -->
+  <figure class="win info" data-title="music bio" style="width:270px">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <ul>
+      <li>shoegaze / ambient music producer</li>
+      <li>kurate music collective</li>
+      <li>50k monthly listeners · 250k streams monthly</li>
+      <li>guitar player</li>
+    </ul>
+  </figure>
+
+  <!-- image tiles (order so cows not adjacent) -->
+  <figure class="win" style="width:420px" data-title="mikeandikes.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/mikeandikes.png" alt="mike and ike tropical typhoon">
+  </figure>
+
   <figure class="win" style="width:250px" data-title="moo.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/cow1.png" alt="highland cow">
   </figure>
 
+  <figure class="win" style="width:300px" data-title="my_crib.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/robloxhouse.jpg" alt="my crib">
+  </figure>
+
   <figure class="win" style="width:250px" data-title="moooooooo.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/cow2.png" alt="highland cow and calf">
+  </figure>
+
+  <figure class="win" style="width:300px" data-title="miloandmango.png">
+    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+    <img src="assets/miloandmango.png" alt="milo and mango">
   </figure>
 
   <figure class="win" style="width:250px" data-title="mr_fox.png">
@@ -67,25 +81,11 @@
     <img src="assets/mrfox.jpg" alt="mr fox">
   </figure>
 
-  <figure class="win" style="width:420px" data-title="mikeandikes.png">
-    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img src="assets/mikeandikes.png" alt="mike and ike tropical typhoon">
-  </figure>
-
-  <figure class="win" style="width:300px" data-title="my_crib.png">
-    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img src="assets/robloxhouse.jpg" alt="my crib">
-  </figure>
-
-  <figure class="win" style="width:300px" data-title="miloandmango.png">
-    <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-    <img src="assets/miloandmango.png" alt="milo and mango">
-  </figure>
-
   <figure class="win" style="width:380px" data-title="sandysrocket.png">
     <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
     <img src="assets/sandysrocket.png" alt="sandy's rocket">
   </figure>
+
 </div>
 
 <!-- ░ JavaScript ░ -->
@@ -94,20 +94,25 @@
 const tik=document.querySelector('#ticker span');
 while(tik.offsetWidth<window.innerWidth*2){tik.textContent+=tik.textContent}
 
-/* ---- player with fixed-size art ---- */
+/* ---- Snoopy-only player ---- */
 const tracks=[
- {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg",   title:"instupendo – comfort chain"},
- {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",     title:"lots of hands – mistake"},
- {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",     title:"jacko / christmas – tell me"},
- {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png", title:"c418 – mice on venus"},
- {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png",   title:"xori – warm nights"}
+  {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg",   title:"instupendo – comfort chain"},
+  {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",     title:"lots of hands – mistake"},
+  {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",     title:"jacko / christmas – tell me"},
+  {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png", title:"c418 – mice on venus"},
+  {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png",   title:"xori – warm nights"}
 ];
-let idx=0, player=document.getElementById('player');
-const art=document.getElementById('art'), name=document.getElementById('trackname');
+let idx=0;
+const player=document.getElementById('player'),
+      art=document.getElementById('art'),
+      title=document.getElementById('trackname');
 function load(n){
   idx=(n+tracks.length)%tracks.length;
-  player.src=tracks[idx].src; art.src=tracks[idx].art; name.textContent=tracks[idx].title;
-  player.play().catch(()=>{});}
+  player.src=tracks[idx].src;
+  art.src   =tracks[idx].art;
+  title.textContent=tracks[idx].title;
+  player.play().catch(()=>{});
+}
 document.getElementById('prev').onclick=_=>load(idx-1);
 document.getElementById('next').onclick=_=>load(idx+1);
 player.onended=_=>load(idx+1);
