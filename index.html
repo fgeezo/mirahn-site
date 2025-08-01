@@ -40,10 +40,10 @@
       to   { transform: translateX(-50%); }
     }
 
-    /* desktop grid */
+    /* desktop grid: exactly 3 columns, each sized to its content */
     .desktop {
       display: grid;
-      grid-template-columns: repeat(auto-fit, max-content);
+      grid-template-columns: repeat(3, max-content);
       grid-auto-rows: max-content;
       gap: var(--gap);
       padding: var(--padding-v) var(--padding-h);
@@ -136,7 +136,7 @@
   <!-- ░ ticker ░ -->
   <div id="ticker"><span>frutiger aero supremacy • </span></div>
 
-  <!-- ░ desktop (masonry container) ░ -->
+  <!-- ░ desktop (3-column container) ░ -->
   <div class="desktop">
 
     <!-- info ▪ left -->
