@@ -57,6 +57,7 @@
     .win {
       position: relative;
       width: max-content;
+      max-width: 360px;
       height: max-content;
       background: rgba(255,255,255,0.66);
       backdrop-filter: blur(12px);
@@ -108,7 +109,7 @@
     /* window content */
     .win img {
       display: block;
-      max-width: 100%;
+      width: 100%;
       height: auto;
       border-radius: 4px;
       margin: 0 auto;
@@ -129,7 +130,6 @@
     }
     .buttons button { cursor: pointer; }
   </style>
-  <!-- ── end new CSS ── -->
 </head>
 <body>
 
@@ -238,11 +238,9 @@
     // ── ticker (marquee effect) ──
     const tickSpan = document.querySelector('#ticker span'),
           txt      = tickSpan.textContent;
-    // Pad the ticker text until it exceeds twice the viewport width
     while (tickSpan.offsetWidth < window.innerWidth * 2) {
       tickSpan.textContent += ' ' + txt;
     }
-    // Slightly slow down the ticker animation
     tickSpan.style.animation = 'ticker 22s linear infinite';
 
     // ── snoopy-only audio player controls ──
@@ -268,21 +266,6 @@
     document.getElementById('next').onclick = () => loadTrack(idx + 1);
     player.onended = () => loadTrack(idx + 1);
     loadTrack(0);
-
-    // ── Masonry layout fix: calculate row spans for each window ──
-    function resizeAll() {
-      const grid   = document.querySelector('.desktop');
-      const rowH   = parseInt(getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-      const rowGap = parseInt(getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-      grid.querySelectorAll('.win').forEach(item => {
-        const contentHeight = item.scrollHeight;
-        const span = Math.ceil((contentHeight + rowGap) / (rowH + rowGap));
-        item.style.gridRowEnd = "span " + span;
-      });
-    }
-    // Run the masonry adjustment on load and on resize
-    window.addEventListener('load', resizeAll);
-    window.addEventListener('resize', resizeAll);
   </script>
 
 </body>
