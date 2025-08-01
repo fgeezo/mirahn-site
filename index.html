@@ -40,7 +40,7 @@
       to   { transform: translateX(-50%); }
     }
 
-    /* desktop grid: exactly 3 columns, each sized to its content */
+    /* desktop grid: exactly 3 columns, each sized to its content, centered */
     .desktop {
       display: grid;
       grid-template-columns: repeat(3, max-content);
@@ -51,6 +51,7 @@
       margin: 0 auto;
       justify-items: start;
       align-items: start;
+      justify-content: center; /* ← centers the 3-column grid inside the container */
     }
 
     /* window styling */
@@ -136,7 +137,7 @@
   <!-- ░ ticker ░ -->
   <div id="ticker"><span>frutiger aero supremacy • </span></div>
 
-  <!-- ░ desktop (3-column container) ░ -->
+  <!-- ░ desktop (3-column, centered) ░ -->
   <div class="desktop">
 
     <!-- info ▪ left -->
@@ -260,7 +261,7 @@
       player.src = tracks[idx].src;
       art.src    = tracks[idx].art;
       cap.textContent = tracks[idx].title;
-      player.play().catch(() => { /* ignore autoplay errors */ });
+      player.play().catch(() => {});
     }
     document.getElementById('prev').onclick = () => loadTrack(idx - 1);
     document.getElementById('next').onclick = () => loadTrack(idx + 1);
