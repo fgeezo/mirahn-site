@@ -5,26 +5,65 @@
   <title>mirahn's space</title>
   <link rel="icon" href="assets/steamlogo.png">
   <style>
-    /* ===== CSS Grid Masonry layout ===== */
+    :root {
+      --gap: 20px;
+      --padding-v: 40px;
+      --padding-h: 10vw;
+      --max-w: 1280px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font: 13px/1.35 "Segoe UI", Tahoma, Arial, sans-serif;
+      background: url("assets/frutigerwallpaper.png") center/cover fixed no-repeat;
+      color: #000;
+    }
+
+    /* ticker */
+    #ticker {
+      position: relative;
+      overflow: hidden;
+      height: 48px;
+      font: 32px/48px "Segoe UI", Tahoma, Arial, sans-serif;
+      font-weight: 700;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(6px);
+      margin-bottom: var(--gap);
+      white-space: nowrap;
+    }
+    #ticker span {
+      position: absolute;
+      animation: ticker 22s linear infinite;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* desktop grid */
     .desktop {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      grid-auto-rows: 10px;
-      grid-auto-flow: dense;
-      gap: 20px;
-      padding: 40px 10vw;
-      max-width: 1280px;
+      grid-template-columns: repeat(auto-fit, max-content);
+      grid-auto-rows: max-content;
+      gap: var(--gap);
+      padding: var(--padding-v) var(--padding-h);
+      max-width: var(--max-w);
       margin: 0 auto;
+      justify-items: start;
+      align-items: start;
     }
+
+    /* window styling */
     .win {
       position: relative;
+      width: max-content;
+      height: max-content;
       background: rgba(255,255,255,0.66);
       backdrop-filter: blur(12px);
       border: 1px solid #0a246a;
       border-radius: 6px;
       box-shadow: inset 0 0 0 1px #ffffff80, 0 3px 8px rgba(0,0,0,0.35);
       padding: 46px 14px 18px;
-      /* break-inside removed as it’s not needed for grid */
     }
     .win::before {
       content: attr(data-title);
@@ -43,10 +82,10 @@
     .win::after {
       content: "";
       position: absolute;
-      left: 1px; right: 1px; top: 32px;
-      height: 1px;
+      left: 1px; right: 1px; top: 32px; height: 1px;
       background: #ffffff99;
     }
+
     .ctrl {
       position: absolute;
       top: 6px; right: 8px;
@@ -65,64 +104,32 @@
     .ctrl .max   { background: linear-gradient(#fff798, #ffcc00); }
     .ctrl .close { background: linear-gradient(#ff7575, #d80000); }
     .ctrl div:hover { filter: brightness(1.18); }
-    /* content styling */
+
+    /* window content */
     .win img {
-      width: 100%;
       display: block;
-      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
       border-radius: 4px;
+      margin: 0 auto;
     }
     figcaption {
-      margin: 6px 0 0;
+      margin-top: 6px;
       font-style: italic;
       font-size: 13px;
     }
+    .info ul { list-style: disc inside; }
     .info li {
       font-size: 17px;
-      margin: 0 0 6px 18px;
-    }
-    /* player specific */
-    #art {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 6px;
+      margin-bottom: 6px;
     }
     .buttons {
       margin-top: 8px;
       text-align: center;
     }
-    .buttons button {
-      cursor: pointer;
-    }
-    /* reset default list styles */
-    ul { margin: 0; padding: 0; }
-    /* ticker styling */
-    #ticker {
-      position: relative;
-      overflow: hidden;
-      height: 48px;
-      font: 32px/48px "Segoe UI", Tahoma, Arial, sans-serif;
-      font-weight: 700;
-      white-space: nowrap;
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(6px);
-    }
-    #ticker span {
-      position: absolute;
-      /* animation set via JS */
-    }
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    body {
-      margin: 0;
-      font: 13px/1.35 "Segoe UI", Tahoma, Arial, sans-serif;
-      background: url("assets/frutigerwallpaper.png") center/cover fixed no-repeat;
-      color: #000;
-    }
+    .buttons button { cursor: pointer; }
   </style>
+  <!-- ── end new CSS ── -->
 </head>
 <body>
 
