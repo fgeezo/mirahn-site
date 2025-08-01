@@ -1,20 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>mirahn's space</title>
   <link rel="icon" href="assets/steamlogo.png">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== CSS Grid Masonry layout ===== */
+    .desktop {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-auto-rows: 10px;
+      grid-auto-flow: dense;
+      gap: 20px;
+      padding: 40px 10vw;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .win {
+      position: relative;
+      background: rgba(255,255,255,0.66);
+      backdrop-filter: blur(12px);
+      border: 1px solid #0a246a;
+      border-radius: 6px;
+      box-shadow: inset 0 0 0 1px #ffffff80, 0 3px 8px rgba(0,0,0,0.35);
+      padding: 46px 14px 18px;
+      /* break-inside removed as it’s not needed for grid */
+    }
+    .win::before {
+      content: attr(data-title);
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 32px;
+      padding: 0 120px 0 12px;
+      background: linear-gradient(#4ba8ff, #1674e2 45%, #0e5ed3);
+      color: #fff;
+      font: 700 15px/32px "Segoe UI", Tahoma, Arial, sans-serif;
+      text-shadow: 0 1px 0 #0007;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .win::after {
+      content: "";
+      position: absolute;
+      left: 1px; right: 1px; top: 32px;
+      height: 1px;
+      background: #ffffff99;
+    }
+    .ctrl {
+      position: absolute;
+      top: 6px; right: 8px;
+      display: flex;
+      gap: 4px;
+    }
+    .ctrl div {
+      width: 14px; height: 14px;
+      border: 1px solid #0a246a;
+      border-radius: 2px;
+      background: linear-gradient(#fbfbfb, #d4d4d4);
+      box-shadow: inset 0 0 0 1px #ffffff90;
+      cursor: pointer;
+    }
+    .ctrl .min   { background: linear-gradient(#a6ffa6, #28b428); }
+    .ctrl .max   { background: linear-gradient(#fff798, #ffcc00); }
+    .ctrl .close { background: linear-gradient(#ff7575, #d80000); }
+    .ctrl div:hover { filter: brightness(1.18); }
+    /* content styling */
+    .win img {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+    figcaption {
+      margin: 6px 0 0;
+      font-style: italic;
+      font-size: 13px;
+    }
+    .info li {
+      font-size: 17px;
+      margin: 0 0 6px 18px;
+    }
+    /* player specific */
+    #art {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .buttons {
+      margin-top: 8px;
+      text-align: center;
+    }
+    .buttons button {
+      cursor: pointer;
+    }
+    /* reset default list styles */
+    ul { margin: 0; padding: 0; }
+    /* ticker styling */
+    #ticker {
+      position: relative;
+      overflow: hidden;
+      height: 48px;
+      font: 32px/48px "Segoe UI", Tahoma, Arial, sans-serif;
+      font-weight: 700;
+      white-space: nowrap;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(6px);
+    }
+    #ticker span {
+      position: absolute;
+      /* animation set via JS */
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    body {
+      margin: 0;
+      font: 13px/1.35 "Segoe UI", Tahoma, Arial, sans-serif;
+      background: url("assets/frutigerwallpaper.png") center/cover fixed no-repeat;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
 
   <!-- ░ ticker ░ -->
   <div id="ticker"><span>frutiger aero supremacy • </span></div>
 
-  <!-- ░ desktop grid ░ -->
+  <!-- ░ desktop (masonry container) ░ -->
   <div class="desktop">
+
+    <!-- info ▪ left -->
     <figure class="win info" data-title="drexel university">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
       <ul>
         <li>bachelor of science in computer engineering · class of ’26</li>
         <li>concentration in security technology</li>
@@ -22,8 +144,12 @@
         <li>security monitoring co-op @ susquehanna international group</li>
       </ul>
     </figure>
+
+    <!-- player ▪ center -->
     <figure class="win" data-title="now playing">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
       <img id="art" src="assets/snoopynightout.jpg" alt="cover">
       <figcaption id="trackname">instupendo – comfort chain</figcaption>
       <audio id="player" controls>
@@ -34,79 +160,123 @@
         <button id="next">next →</button>
       </div>
     </figure>
+
+    <!-- info ▪ right -->
     <figure class="win info" data-title="music bio">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
       <ul>
         <li>shoegaze / ambient music producer</li>
         <li>kurate music collective</li>
-        <li>50 k monthly listeners · 250 k streams monthly</li>
+        <li>50k monthly listeners · 250k streams monthly</li>
         <li>guitar player</li>
       </ul>
     </figure>
-    <!-- swap mr_fox and moo -->
-    <figure class="win" data-title="mr_fox.png">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-      <figcaption>“i understand what you're saying, and your comments are valuable, but i'm gonna ignore your advice.”</figcaption>
-      <img src="assets/mrfox.jpg" alt="mr fox">
-    </figure>
+
+    <!-- image tiles -->
     <figure class="win" data-title="mikeandikes.png">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-      <img src="assets/mikeandikes.png" alt="Mike & Ike">
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
+      <img src="assets/mikeandikes.png" alt="Mike &amp; Ike">
     </figure>
+
     <figure class="win" data-title="my_crib.png">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
       <img src="assets/robloxhouse.jpg" alt="my crib">
     </figure>
+
     <figure class="win" data-title="moo.png">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
       <img src="assets/cow1.png" alt="highland cow">
     </figure>
+
+    <figure class="win" data-title="mr_fox.png">
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
+      <figcaption>“I understand what you're saying, and your comments are valuable, but I'm gonna ignore your advice.”</figcaption>
+      <img src="assets/mrfox.jpg" alt="mr fox">
+    </figure>
+
     <figure class="win" data-title="miloandmango.png">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
       <img src="assets/miloandmango.png" alt="milo and mango">
     </figure>
+
     <figure class="win" data-title="moooooooo.png">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
-      <img src="assets/cow2.png" alt="cow & calf">
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
+      <img src="assets/cow2.png" alt="highland cow and calf">
     </figure>
+
     <figure class="win" data-title="sandysrocket.png">
-      <div class="ctrl"><div class="min"></div><div class="max"></div><div class="close"></div></div>
+      <div class="ctrl">
+        <div class="min"></div><div class="max"></div><div class="close"></div>
+      </div>
       <img src="assets/sandysrocket.png" alt="sandy's rocket">
     </figure>
-  </div><!-- .desktop -->
+
+  </div><!-- /.desktop container -->
 
   <script>
-    // ── ticker ──
-    const tickSpan = document.querySelector('#ticker span');
-    let txt = tickSpan.textContent;
-    while (tickSpan.offsetWidth < window.innerWidth * 3) {
+    // ── ticker (marquee effect) ──
+    const tickSpan = document.querySelector('#ticker span'),
+          txt      = tickSpan.textContent;
+    // Pad the ticker text until it exceeds twice the viewport width
+    while (tickSpan.offsetWidth < window.innerWidth * 2) {
       tickSpan.textContent += ' ' + txt;
     }
+    // Slightly slow down the ticker animation
     tickSpan.style.animation = 'ticker 22s linear infinite';
 
-    // ── snoopy‐only player ──
+    // ── snoopy-only audio player controls ──
     const tracks = [
-      {src:"assets/comfort_chain.mp3", art:"assets/snoopynightout.jpg",   title:"instupendo – comfort chain"},
-      {src:"assets/mistake.mp3",       art:"assets/snoopyeating.png",     title:"lots of hands – mistake"},
-      {src:"assets/tell_me.mp3",       art:"assets/snoopyriding.png",     title:"jacko / christmas – tell me"},
-      {src:"assets/mice_on_venus.mp3", art:"assets/snoopywallflower.png", title:"c418 – mice on venus"},
-      {src:"assets/warm_nights.mp3",   art:"assets/snoopychilling.png",   title:"xori – warm nights"}
+      { src: "assets/comfort_chain.mp3", art: "assets/snoopynightout.jpg",   title: "instupendo – comfort chain" },
+      { src: "assets/mistake.mp3",       art: "assets/snoopyeating.png",     title: "lots of hands – mistake" },
+      { src: "assets/tell_me.mp3",       art: "assets/snoopyriding.png",     title: "jacko / christmas – tell me" },
+      { src: "assets/mice_on_venus.mp3", art: "assets/snoopywallflower.png", title: "c418 – mice on venus" },
+      { src: "assets/warm_nights.mp3",   art: "assets/snoopychilling.png",   title: "xori – warm nights" }
     ];
-    let idx=0;
-    const player=document.getElementById('player'),
-          art   =document.getElementById('art'),
-          cap   =document.getElementById('trackname');
-    function load(n){
-      idx=(n+tracks.length)%tracks.length;
-      player.src=tracks[idx].src;
-      art.src   =tracks[idx].art;
-      cap.textContent=tracks[idx].title;
-      player.play().catch(()=>{});
+    let idx = 0;
+    const player = document.getElementById('player'),
+          art    = document.getElementById('art'),
+          cap    = document.getElementById('trackname');
+    function loadTrack(n) {
+      idx = (n + tracks.length) % tracks.length;
+      player.src = tracks[idx].src;
+      art.src    = tracks[idx].art;
+      cap.textContent = tracks[idx].title;
+      player.play().catch(() => { /* ignore autoplay errors */ });
     }
-    document.getElementById('prev').onclick=_=>load(idx-1);
-    document.getElementById('next').onclick=_=>load(idx+1);
-    player.onended=_=>load(idx+1);
-    load(0);
+    document.getElementById('prev').onclick = () => loadTrack(idx - 1);
+    document.getElementById('next').onclick = () => loadTrack(idx + 1);
+    player.onended = () => loadTrack(idx + 1);
+    loadTrack(0);
+
+    // ── Masonry layout fix: calculate row spans for each window ──
+    function resizeAll() {
+      const grid   = document.querySelector('.desktop');
+      const rowH   = parseInt(getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+      const rowGap = parseInt(getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+      grid.querySelectorAll('.win').forEach(item => {
+        const contentHeight = item.scrollHeight;
+        const span = Math.ceil((contentHeight + rowGap) / (rowH + rowGap));
+        item.style.gridRowEnd = "span " + span;
+      });
+    }
+    // Run the masonry adjustment on load and on resize
+    window.addEventListener('load', resizeAll);
+    window.addEventListener('resize', resizeAll);
   </script>
+
 </body>
 </html>
