@@ -4,338 +4,272 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>mirahn.com</title>
+
+  <meta name="description" content="Personal site of Mirahn Alshamry - Computer Engineering student at Drexel University focusing on security technology, with experience at Lockheed Martin and Susquehanna International Group." />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 
-<body bgcolor="#000000" text="#00ff66" link="#66ccff" vlink="#ff66cc" alink="#ffff00"
-      style="margin:0; font-family: Verdana, Arial, sans-serif;">
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
 
-  <!-- ROLLING TOP BAR -->
-  <table width="100%" cellpadding="8" cellspacing="0" border="0" style="background:#001a0f;">
-    <tr>
-      <td align="center" style="border-bottom:2px solid #00ff66;">
-        <font size="5"><b>MIRAHN.COM</b></font>
-        <br />
-        <marquee behavior="scroll" direction="left" scrollamount="15">
-          <b>MIRAHN.COM • COOL PROJECTS • COOL MUSIC • COOL WEBSITE</b>
-        </marquee>
-      </td>
-    </tr>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="mirahn.com home">
+        <span class="brand-title">mirahn.com</span>
+        <span class="brand-subtitle">Mirahn Alshamry · Computer Engineering student at Drexel University · Formerly at Lockheed Martin, Susquehanna International Group</span>
+      </a>
 
-    <!-- 88x31 strip AUTO WRAPPED -->
-    <tr>
-      <td align="center">
-        <img src="media/antinazi.gif" height="31" alt="antinazi" />
-        <img src="media/bbiw.gif" height="31" alt="bbiw" />
-        <img src="media/bugland.gif" height="31" alt="bugland" />
-        <img src="media/cheezit.gif" height="31" alt="cheezit" />
-        <img src="media/ddg.gif" height="31" alt="ddg" />
-        <img src="media/e-scp.gif" height="31" alt="e-scp" />
-        <img src="media/ie.gif" height="31" alt="ie" />
-        <img src="media/chameleon.gif" height="31" alt="chameleon" />
-        <img src="media/iraq.gif" height="31" alt="iraq" />
-        <img src="media/lol.gif" height="31" alt="lol" />
-        <img src="media/made_with_windows.gif" height="31" alt="made_with_windows" />
-        <img src="media/music.gif" height="31" alt="music" />
-        <img src="media/netflix.gif" height="31" alt="netflix" />
-        <img src="media/nocookie.gif" height="31" alt="nocookie" />
-        <img src="media/yeah.gif" height="31" alt="yeah" />
-        <img src="media/firefox.gif" height="31" alt="firefox" />
-        <img src="media/discord.gif" height="31" alt="discord" />
-        <img src="media/www.gif" height="31" alt="www" />
-        <img src="media/vista.gif" height="31" alt="vista" />
-        <img src="media/gamecube.gif" height="31" alt="gamecube" />
-        <img src="media/hello.gif" height="31" alt="hello" />
-        <img src="media/horror.gif" height="31" alt="horror" />
-        <img src="media/mp3.gif" height="31" alt="mp3" />
-        <img src="media/1980s.gif" height="31" alt="1980s" />
-      </td>
-    </tr>
-  </table>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- MAIN LAYOUT -->
-  <table width="100%" cellpadding="10" cellspacing="0" border="0">
-    <tr valign="top">
+    <section id="about" class="section">
+      <div class="section-inner card">
+        <h2>About</h2>
+        <p>
+          I’m Mirahn Alshamry, a Computer Engineering student at Drexel University concentrating in security technology, 
+          graduating in August 2026. I’ve worked in cybersecurity and software engineering roles where I’ve done alert
+          triage, log analysis, detection engineering, and incident response support.
+        </p>
+      </div>
+    </section>
 
-      <!-- LEFT SIDEBAR -->
-      <td width="240" style="background:#000a06; border-right:2px solid #00ff66;">
-        <center>
-          <font size="4"><b>Sections</b></font>
-          <hr color="#00ff66" />
-          <a href="#about">[ About ]</a><br />
-          <a href="#security-recognition">[ Security &amp; Recognition ]</a><br />
-          <a href="#music">[ Music ]</a><br />
-          <!-- <a href="#project1">[ PROJECT ONE PLACEHOLDER ]</a><br /> -->
-          <hr color="#00ff66" />
-        </center>
+    <section id="experience" class="section">
+      <div class="section-inner">
+        <div class="card">
+          <div class="card-header">
+            <h2>Experience</h2>
+          </div>
 
-        <div align="center" style="margin:18px 0;">
-          <img src="media/dogwithraybans.jpg" width="200" alt="dogwithraybans"
-               style="border:2px solid #00ff66; max-width:95%;" />
+          <article class="xp">
+            <div class="xp-top">
+              <div class="xp-title">
+                <h3>Susquehanna International Group</h3>
+                <div class="xp-role">Blue Team Security Engineer Co-op</div>
+              </div>
+              <div class="xp-logo" aria-hidden="true">
+                <img src="media/SIG_Logo.png" alt="" />
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>
+                Built a PowerShell module integrating ZeroFox APIs into internal tooling to surface
+                brand/VIP impersonations directly into the triage workflow.
+              </li>
+              <li>
+                Upgraded Windows Event Collector servers to a modern OS, configured to allow for
+                log ingestion (Sysmon/Windows) across thousands of endpoints.
+              </li>
+              <li>
+                Triaged and investigated SIEM/EDR alerts using Sysmon/WEC, Microsoft Defender for Endpoint,
+                and network telemetry. Documented findings to close alerts and tuned rules.
+              </li>
+                Investigated employee-reported malicious emails and wrote regex rules to block
+                recurring malspam campaigns.
+            </ul>
+          </article>
+
+          <div class="divider" role="separator" aria-hidden="true"></div>
+
+          <article class="xp">
+            <div class="xp-top">
+              <div class="xp-title">
+                <h3>Lockheed Martin</h3>
+                <div class="xp-role">Cybersecurity &amp; Software Engineer (College Student Tech)</div>
+              </div>
+              <div class="xp-logo" aria-hidden="true">
+                <img src="media/LM_Logo.png" alt="" />
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>
+                Contributed to a mainframe exit effort migrating employee data into AWS-backed storage by updating
+                legacy JCL and COBOL data pipelines.
+              </li>
+              <li>
+                Supported modernization work intended to reduce reliance on legacy access paths and improve monitoring
+                around sensitive employee data flows.
+              </li>
+              <li>
+                Assisted teams building a global onboarding portal that incorporated region-specific privacy and security
+                requirements across multiple geographies.
+              </li>
+            </ul>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <div align="center" style="margin:18px 0;">
-          <img src="media/doganddeer.png" width="200" alt="doganddeer"
-               style="border:2px solid #00ff66; max-width:95%;" />
+    <section id="education" class="section">
+      <div class="section-inner">
+        <div class="card">
+          <div class="card-header">
+            <h2>Education</h2>
+          </div>
+
+          <article class="edu">
+            <div class="edu-top">
+              <div class="edu-main">
+                <h3>Drexel University</h3>
+                <div class="edu-meta">Philadelphia, PA · Expected August 2026</div>
+                <div class="edu-degree">
+                  B.S. Computer Engineering, concentration in Security Technology
+                </div>
+              </div>
+              <div class="edu-logo" aria-hidden="true">
+                <img src="media/Drexel_Logo.png" alt="" />
+              </div>
+            </div>
+
+            <ul class="bullets">
+              <li>
+                Course Assistant: CT-412 IT Security Policies · CyberDragons Cybersecurity Club member · A.J. Drexel Scholarship.
+              </li>
+              <li>
+                Relevant coursework: IT Security, IT Security Policies, Computer Forensics, Multimedia Forensics &amp; Security,
+                Design with Microcontrollers, Data Structures, Advanced Programming Tools &amp; Techniques, Advanced Programming
+                for Engineers, Computer Organization, Parallel Programming.
+              </li>
+            </ul>
+          </article>
+
+          <div class="divider" role="separator" aria-hidden="true"></div>
+
+          <section id="certs" aria-label="Certifications">
+            <h3 class="subheading">Certifications</h3>
+
+            <div class="cert-grid">
+              <div class="cert">
+                <div class="cert-badge">
+                  <img src="media/SecurityPlus_Logo.png" alt="CompTIA Security+ Certified" />
+                </div>
+                <div class="cert-body">
+                  <div class="cert-name">CompTIA Security+ (SY0-701)</div>
+                  <div class="cert-meta">Expires 02/05/2029</div>
+                  <div class="links">
+                    <a href="media/SecurityPlusCertificate.pdf" target="_blank" rel="noopener">
+                      Certificate (PDF)
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cert">
+                <div class="cert-badge">
+                  <img src="media/CySA_Logo.png" alt="CompTIA CySA+ Certified" />
+                </div>
+                <div class="cert-body">
+                  <div class="cert-name">CompTIA CySA+ (CS0-003)</div>
+                  <div class="cert-meta">Expires 02/13/2029</div>
+                  <div class="links">
+                    <a href="media/CYSA.pdf" target="_blank" rel="noopener">
+                      Certificate (PDF)
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cert">
+                <div class="cert-badge">
+                  <img src="media/CSAP_Logo.png" alt="CompTIA CSAP – Security Analytics Professional" />
+                </div>
+                <div class="cert-body">
+                  <div class="cert-name">CompTIA CSAP - Security Analytics Professional</div>
+                  <div class="cert-meta">Stackable certification</div>
+                  <div class="links">
+                    <a href="media/CSAP.pdf" target="_blank" rel="noopener">
+                      Certificate (PDF)
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
+      </div>
+    </section>
 
-        <div align="center" style="margin:18px 0;">
-          <img src="media/nighttree.jpg" width="200" alt="nighttree"
-               style="border:2px solid #00ff66; max-width:95%;" />
+    <section id="achievements" class="section">
+      <div class="section-inner">
+        <div class="card">
+          <div class="card-header">
+            <h2>Achievements</h2>
+          </div>
+
+          <article class="xp">
+            <div class="xp-top">
+              <div class="xp-title">
+                <h3>Lockheed Martin CyberQuest Champion (2021 &amp; 2022)</h3>
+              </div>
+              <div class="xp-logo" aria-hidden="true">
+                <img src="media/LM_Logo.png" alt="" />
+              </div>
+            </div>
+            <ul class="bullets">
+              <li>
+                Led teams to first place in Pennsylvania in Lockheed Martin’s CyberQuest competition
+                two years in a row, in challenges spanning cryptography, reverse engineering, web exploits, incident
+                response, forensics, and OSINT.
+              </li>
+              <li>
+                <div class="links">
+                  <a href="media/CyberQuestChampionBelt.jpg" target="_blank" rel="noopener">
+                  CyberQuest Champion Belt
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <div class="divider" role="separator" aria-hidden="true"></div>
+
+          <article class="xp">
+            <div class="xp-top">
+              <div class="xp-title">
+                <h3>DrexelOne Vulnerability Disclosure Recognition</h3>
+              </div>
+              <div class="xp-logo" aria-hidden="true">
+                <img src="media/Drexel_Logo.png" alt="" />
+              </div>
+            </div>
+            <ul class="bullets">
+              <li>
+                Discovered and responsibly disclosed an <strong>Insecure Direct Object Reference (IDOR)</strong>
+                vulnerability in DrexelOne exposing student documents containing PII, received a formal letter of
+                appreciation from the University’s CISO, and recognition in the Bug Bounty program’s 2024 Hall of Fame.
+              </li>
+              <li>
+                <div class="links">
+                  <a href="media/CISOLOA.pdf" target="_blank" rel="noopener">
+                  Letter from CISO
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <div align="center" style="margin:18px 0 8px 0;">
-          <img src="media/snoopyperksofwallflower.jpg" width="200" alt="snoopyperksofwallflower"
-               style="border:2px solid #00ff66; max-width:95%;" />
-        </div>
-      </td>
-
-      <!-- CENTER -->
-      <td style="background:#000000;">
-
-        <!-- BIG SNOOPY FLOWER PIC -->
-        <center>
-          <img src="media/snoopyflower.jpg" width="900" alt="snoopyflower"
-               style="max-width:95%; border:3px ridge #00ff66;" />
-        </center>
-
-        <br />
-
-        <!-- ABOUT -->
-        <a id="about"></a>
-        <table width="100%" cellpadding="10" cellspacing="0" border="0"
-               style="border:2px solid #00ff66; background:#00110a;">
-          <tr valign="top">
-            <td>
-              <font size="4"><b>About</b></font>
-              <hr color="#00ff66" />
-              <font size="2">
-                I’m Mirahn Alshamry, a computer engineering student at Drexel University, concentrating in security technology.
-                I’ve held roles as both a cyber/software engineer, and as a blue team/security engineer, at Lockheed Martin and
-                Susquehanna Intl. Group, I'm expected to graduate in August 2026. In my free time I produce music as an independent 
-                artist.
-              </font>
-            </td>
-          </tr>
-        </table>
-        <br />
-
-        <!-- SECURITY & RECOGNITION -->
-        <a id="security-recognition"></a>
-        <table width="100%" cellpadding="10" cellspacing="0" border="0"
-              style="border:2px solid #00ff66; background:#00110a;">
-          <tr valign="top">
-            <td>
-              <font size="4"><b>Security &amp; Recognition</b></font>
-              <hr color="#00ff66" />
-              <font size="2">
-                <ul>
-                  <li>
-                    <b>CompTIA CySA+ (S0-003) (Expires 02/13/2029)</b> - Completed my CySA+ certification roughly a week after the Security+. 
-                    Most of the content was carried over from the prior exam. This exam had far more emphasis on performance-based questions,
-                    but my time at SIG helped tremendously as the questions primarily revolved around log analysis. Completing this exam also
-                    granted me the Security Analytics Professional (CSAP) stackable certification.
-                    [<a href="media/CYSA.pdf" target="_blank" rel="noopener">View CySA+ certificate (PDF)</a>]
-                    [<a href="media/CSAP.pdf" target="_blank" rel="noopener">View CSAP certificate (PDF)</a>]
-                  </li>
-                  <br />
-                  <li>
-                    <b>CompTIA Security+ (SY0-701) (Expires 02/05/2029)</b> - Finally took the Security+ exam after working 
-                    with the material for years. Did a review day then took the exam the next morning, and passed.
-                    [<a href="media/SecurityPlusCertificate.pdf" target="_blank" rel="noopener">View certificate (PDF)</a>]
-                  </li>
-                  <br />
-                    <li>
-                      <b>Drexel University Bug Bounty</b> - Found and reported an IDOR vulnerability in a university system.
-                      I was added to Drexel’s Bug Bounty program's 2024 <a href="https://drexel.edu/it/security/services-processes/bug-bounty/"
-                      target="_blank" rel="noopener">Hall of Fame</a> and received a recognition letter from the CISO.
-                      [<a href="media/CISOLOA.pdf" target="_blank" rel="noopener">View letter (PDF)</a>]
-                    </li>
-                </ul>
-              </font>
-            </td>
-          </tr>
-        </table>
-        <br />
-
-        <!-- LOCKHEED MARTIN -->
-        <a id="lockheed martin"></a>
-        <table width="100%" cellpadding="10" cellspacing="0" border="0"
-               style="border:2px solid #66ccff; background:#000a14;">
-          <tr valign="top">
-            <td>
-              <font size="4" color="#66ccff"><b>Lockheed Martin - Cybersecurity & Software Engineer (College Student Tech)</b></font>
-              <hr color="#66ccff" />
-              <font size="2">
-                During my time at Lockheed Martin, I worked as a cybersecurity/software engineer on their security-driven Mainframe Exit initiative.
-                I originally joined for a 10-week internship, but the role continued into part-time work and eventually a Drexel co-op. I helped
-                migrate employee data off an IBM mainframe by updating legacy JCL and COBOL pipelines and moving everything into AWS-based storage. Once
-                these efforts were completed I acted as surge support assisting various teams that were contributing to a global onboarding portal.
-                In doing so I had to assist in the development of the new employee experience while different privacy and security requirements
-                across North America, the Middle East & North Africa, Latin America, and Europe.
-              </font>
-            </td>
-          </tr>
-        </table>
-        <br />
-
-                <!-- SIG  -->
-        <a id="susquehanna intl. group"></a>
-        <table width="100%" cellpadding="10" cellspacing="0" border="0"
-               style="border:2px solid #66ccff; background:#000a14;">
-          <tr valign="top">
-            <td>
-              <font size="4" color="#66ccff"><b>Susquehanna Intl. Group - Blue Team Security Engineer Co-op</b></font>
-              <hr color="#66ccff" />
-              <font size="2">
-              During my time at Susquehanna International Group, I worked as a Blue Team Security Engineer focusing on alert handling, detection engineering,
-              and various security projects. I started development of a PowerShell module integrating ZeroFox APIs with our internal tooling to surface
-              brand and VIP impersonations directly into our triage workflow. I also upgraded and reconfigured the firm’s Windows Event Collector
-              servers, modernizing the legacy hosts thereby improving Sysmon/workstation log ingestion across 1,000+ endpoints. Day-to-day, I investigated employee-reported
-              malicious emails and wrote custom regular expressions to block malspam campaigns. I handled a high volume of SIEM alerts using Sysmon/WEC, MDE, and network telemetry,
-              documenting all findings. I contributed to detection engineering by tuning and creating rules, validating existing content, writing playbooks,
-              and adding IOCs during investigations. I also spent two weeks with the security assurance team, helping craft phishing simulation emails based
-              on real cases I handled and assisting with policy exception and TPSA workflows.
-            </td>
-          </tr>
-        </table>
-        <br />
-
-        <!-- MUSIC -->
-        <a id="music"></a>
-        <table width="100%" cellpadding="10" cellspacing="0" border="0"
-               style="border:2px solid #66ccff; background:#000a14;">
-          <tr valign="top">
-            <td>
-              <font size="4" color="#66ccff"><b>Music</b></font>
-              <hr color="#66ccff" />
-              <font size="2">
-                Artist: <b>talking after hours</b><br />
-                <br />
-                Fully producing, mixing, and mastering an independent shoegaze music project with
-                150k+ monthly listeners and 750k+ monthly streams, and one track released through a label.
-                <br /><br />
-                <b>Links:</b>
-                <ul>
-                  <li><a href="https://open.spotify.com/artist/3ZVz9Dd7eVZRnloy8Pg7fJ" target="_blank" rel="noopener">Spotify</a></li>
-                  <li><a href="https://soundcloud.com/talking-after-hours" target="_blank" rel="noopener">SoundCloud</a></li>
-                  <li><a href="https://www.instagram.com/talkingaftrhours/" target="_blank" rel="noopener">Instagram</a></li>
-                </ul>
-              </font>
-            </td>
-
-            <td width="220" align="center">
-              <img src="media/dogwithraybans.jpg" width="200" alt="dogwithraybans"
-                   style="border:2px solid #66ccff; max-width:95%;" />
-            </td>
-          </tr>
-        </table>
-        <br />
-
-        <!-- START OF NEXT SECTION (PROBABLY A PROJECT)
-        <a id="project1"></a>
-        <table width="100%" cellpadding="10" cellspacing="0" border="0"
-               style="border:2px dashed #ff66cc; background:#14000f;">
-          <tr valign="top">
-            <td>
-              <font size="4" color="#ff66cc"><b>PLACEHOLDER PROJECT TITLE</b></font>
-              <hr color="#ff66cc" />
-              <font size="2">
-                <b>DESC.</b>
-                <b>GIT REPO:</b> ________<br />
-              </font>
-            </td>
-          </tr>
-        </table>
-        -->
-
-        <br />
-
-        <!-- FOOTER STRIP -->
-        <center>
-            <img src="media/antinazi.gif" height="31" alt="antinazi" />
-            <img src="media/bbiw.gif" height="31" alt="bbiw" />
-            <img src="media/bugland.gif" height="31" alt="bugland" />
-            <img src="media/cheezit.gif" height="31" alt="cheezit" />
-            <img src="media/ddg.gif" height="31" alt="ddg" />
-            <img src="media/e-scp.gif" height="31" alt="e-scp" />
-            <img src="media/ie.gif" height="31" alt="ie" />
-            <img src="media/chameleon.gif" height="31" alt="chameleon" />
-            <img src="media/iraq.gif" height="31" alt="iraq" />
-            <img src="media/lol.gif" height="31" alt="lol" />
-            <img src="media/made_with_windows.gif" height="31" alt="made_with_windows" />
-            <img src="media/music.gif" height="31" alt="music" />
-            <img src="media/netflix.gif" height="31" alt="netflix" />
-            <img src="media/nocookie.gif" height="31" alt="nocookie" />
-            <img src="media/yeah.gif" height="31" alt="yeah" />
-            <img src="media/firefox.gif" height="31" alt="firefox" />
-            <img src="media/discord.gif" height="31" alt="discord" />
-            <img src="media/www.gif" height="31" alt="www" />
-            <img src="media/vista.gif" height="31" alt="vista" />
-            <img src="media/gamecube.gif" height="31" alt="gamecube" />
-            <img src="media/hello.gif" height="31" alt="hello" />
-            <img src="media/horror.gif" height="31" alt="horror" />
-            <img src="media/mp3.gif" height="31" alt="mp3" />
-            <img src="media/1980s.gif" height="31" alt="1980s" />
-          <br /><br />
-          <font size="1">
-            © <span id="year">2000</span> mirahn.com
-          </font>
-          <script>
-            document.getElementById("year").textContent = new Date().getFullYear();
-          </script>
-        </center>
-
-      </td>
-
-      <!-- RIGHT SIDEBAR -->
-      <td width="240" style="background:#000a06; border-left:2px solid #00ff66;">
-        <center>
-          <font size="4"><b>Links</b></font>
-          <hr color="#00ff66" />
-        </center>
-
-        <font size="2">
-          <b>Spotify:</b> <a href="https://open.spotify.com/artist/3ZVz9Dd7eVZRnloy8Pg7fJ" target="_blank" rel="noopener">open.spotify.com</a><br />
-          <b>SoundCloud:</b> <a href="https://soundcloud.com/talking-after-hours" target="_blank" rel="noopener">soundcloud.com</a><br />
-          <b>Instagram:</b> <a href="https://www.instagram.com/talkingaftrhours/" target="_blank" rel="noopener">instagram.com</a><br />
-          <b>GitHub:</b> <a href="https://github.com/fgeezo" target="_blank" rel="noopener">github.com</a><br />
-          <b>Discord:</b> mirahn <br />
-          <b>Email:</b> admin@mirahn.com <br />
-        </font>
-
-        <br />
-
-        <center>
-          <hr color="#00ff66" />
-            <img src="media/antinazi.gif" height="31" alt="antinazi" />
-            <img src="media/bbiw.gif" height="31" alt="bbiw" />
-            <img src="media/bugland.gif" height="31" alt="bugland" />
-            <img src="media/cheezit.gif" height="31" alt="cheezit" />
-            <img src="media/ddg.gif" height="31" alt="ddg" />
-            <img src="media/e-scp.gif" height="31" alt="e-scp" />
-            <img src="media/ie.gif" height="31" alt="ie" />
-            <img src="media/chameleon.gif" height="31" alt="chameleon" />
-            <img src="media/iraq.gif" height="31" alt="iraq" />
-            <img src="media/lol.gif" height="31" alt="lol" />
-            <img src="media/made_with_windows.gif" height="31" alt="made_with_windows" />
-            <img src="media/music.gif" height="31" alt="music" />
-            <img src="media/netflix.gif" height="31" alt="netflix" />
-            <img src="media/nocookie.gif" height="31" alt="nocookie" />
-            <img src="media/yeah.gif" height="31" alt="yeah" />
-            <img src="media/firefox.gif" height="31" alt="firefox" />
-            <img src="media/discord.gif" height="31" alt="discord" />
-            <img src="media/www.gif" height="31" alt="www" />
-            <img src="media/vista.gif" height="31" alt="vista" />
-            <img src="media/gamecube.gif" height="31" alt="gamecube" />
-            <img src="media/hello.gif" height="31" alt="hello" />
-            <img src="media/horror.gif" height="31" alt="horror" />
-            <img src="media/mp3.gif" height="31" alt="mp3" />
-            <img src="media/1980s.gif" height="31" alt="1980s" />
-        </center>
-      </td>
-
-    </tr>
-  </table>
-
+    <section id="contact" class="section">
+      <div class="section-inner card">
+        <h2>Contact</h2>
+        <ul class="contact-list">
+          <li><span class="k">Email</span> <a href="mailto:admin@mirahn.com">admin@mirahn.com</a></li>
+          <li><span class="k">GitHub</span> <a href="https://github.com/fgeezo" target="_blank" rel="noopener">github.com/fgeezo</a></li>
+          <li><span class="k">Discord</span> <span>mirahn</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
