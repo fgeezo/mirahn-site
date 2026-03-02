@@ -10,7 +10,7 @@
   --border: rgba(17, 24, 39, 0.12);
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
 
-  --radius: 5px;
+  --radius: 3px;
 
   --page-pad: clamp(16px, 3vw, 40px);
   --content-max: 1320px;
@@ -299,9 +299,9 @@ a:hover { text-decoration: underline; }
   gap: 14px;
   align-items: center;
   padding: 14px;
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(17, 24, 39, 0.10);
-  border-radius: 14px;
+  border-radius: 10px;
 }
 
 @media (max-width: 520px) {
@@ -315,7 +315,7 @@ a:hover { text-decoration: underline; }
   max-height: 90px;
   object-fit: contain;
   filter: drop-shadow(0 6px 10px rgba(0,0,0,0.10));
-  background: rgba(255,255,255,0.55);
+  background: rgba(255,220,220,0.55);
   border: 1px solid rgba(17, 24, 39, 0.08);
   border-radius: 12px;
   padding: 10px;
